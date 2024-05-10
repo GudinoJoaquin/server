@@ -1,8 +1,9 @@
-# React + Vite
+Para inicializar la aplicación de React copiar las siguientes lineas en orden en CMD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+cd /Anuncios
+npm install
+npm install express
+npm install mysql2
+npm install cors
+npm install body-parser
+npm install date-fns
