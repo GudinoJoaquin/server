@@ -1,7 +1,9 @@
 {
   "name": "anuncios",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Sistema de anuncios, CRUD y sistema de login",
+  "author": "Gudiño Joaquin",
   "type": "module",
   "scripts": {
     "dev": "vite",
