@@ -9,7 +9,7 @@ function UserCard({ img, titulo, mensaje, fecha, adjunto }) {
   };
 
   return (
-    <div className="flex justify-center items-center mt-[100px] overflow-x-hidden">
+    <div className="flex justify-center items-center mt-[100px] overflow-x-hidden bg-white dark:bg-slate-900">
       <div className="relative w-full xl:h-64 max-w-[400px] xl:w-full xl:max-w-[90vw] mx-4 flex xl:flex-row flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-xl">
         <div className="relative xl:flex-2 h-40 xl:h-64 xl:w-[30%] overflow-hidden xl:rounded-l-xl xl:rounded-r-none rounded-t-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
           <img className="size-full" src={img} alt={titulo} />

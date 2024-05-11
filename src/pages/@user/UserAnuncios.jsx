@@ -30,13 +30,13 @@ function UserAnuncios() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <>
-      <div className="flex justify-center items-center gap-2 mb-[-50px] mt-[20px]">
+    <div className="dark:bg-slate-900">
+      <div className="flex justify-center items-center gap-2 mb-[-50px] ">
         {Array.from(
           { length: Math.ceil(anuncios.length / adsPerPage) },
           (_, i) => (
             <button
-              className=" font-semibold underline underline-offset-2 p-[4px] my-2 rounded-sm hover:scale-[1.2] hover:bg-red-100 transition duration-[.3s]"
+              className="dark:text-slate-200 dark:hover:bg-blue-900 font-semibold underline underline-offset-2 p-[4px] my-2 rounded-sm hover:scale-[1.2] hover:bg-red-100 transition duration-[.3s]"
               key={i}
               onClick={() => paginate(i + 1)}
             >
@@ -56,12 +56,12 @@ function UserAnuncios() {
         />
       ))}
       {/* Botones de paginación */}
-      <div className="flex justify-center items-center gap-2 mb-[-50px] mt-[20px]">
+      <div className="flex justify-center items-center gap-2 mb-[50px] mt-[20px]">
         {Array.from(
           { length: Math.ceil(anuncios.length / adsPerPage) },
           (_, i) => (
             <button
-              className=" font-semibold underline underline-offset-2 p-[4px] my-2 rounded-sm hover:scale-[1.2] hover:bg-red-100 transition duration-[.3s]"
+              className="dark:text-slate-200 dark:hover:bg-blue-900 font-semibold underline underline-offset-2 p-[4px] my-2 rounded-sm hover:scale-[1.2] hover:bg-red-100 transition duration-[.3s]"
               key={i}
               onClick={() => paginate(i + 1)}
             >
@@ -70,7 +70,7 @@ function UserAnuncios() {
           )
         )}
       </div>
-    </>
+    </div>
   );
 }
 

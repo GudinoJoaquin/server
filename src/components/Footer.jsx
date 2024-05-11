@@ -13,57 +13,61 @@ function Footer() {
     window.location.href = path;
   };
   return (
-    <footer>
-      <div class="footer-content">
-        <div class="footer-nav">
-          <ul>
-            <li>
-              <button
-                onClick={() => handleNavigation('https://gudinojoaquin.github.io/home-eestn5/src/contacto.html')}
-                class="contact-button"
+    <footer className="bg-gray-200 py-5">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center flex-wrap">
+          <div className="w-full md:w-auto mb-5 md:mb-0">
+            <ul className="text-center">
+              <li>
+                <button
+                  onClick={() => handleNavigation('https://gudinojoaquin.github.io/home-eestn5/src/contacto.html')}
+                  className="contact-button"
+                >
+                  Contacto
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div className="w-full md:w-auto mb-5 md:mb-0 text-center">
+            <p className="text-gray-800">Escuela de Educación Técnica 5 Mar del Plata</p>
+            <div className="creadores">
+              <a
+                href="https://github.com/GudinoJoaquin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-purple-800"
               >
-                Contacto
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-names">
-          <p>Escuela de Educación Técnica 5 Mar del Plata</p>
-          <creadores>
-            <a
-              href="https://github.com/GudinoJoaquin"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Joaquín Gudiño
-            </a>
-            <a
-              href="https://github.com/FacundoCien"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Facundo Cientofante
-            </a>
-          </creadores>
-        </div>
-        <div class="footer-social">
-          <ul>
-            <li>
-              <a href="https://www.facebook.com/EEST5MDP/?locale=es_LA">
-                <img id="fb" src={facebook} alt="Facebook" />
+                Joaquín Gudiño 
               </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/EEST5MDP">
-                <img id="tt" src={twitter} alt="Twitter" />
+              <a
+                href="https://github.com/FacundoCien"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-purple-800"
+              >
+                Facundo Cientofante
               </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/tecnicacinco_mdq/?hl=es-la">
-                <img id="ig" src={instagram} alt="Instagram" />
-              </a>
-            </li>
-          </ul>
+            </div>
+          </div>
+          <div className="w-full md:w-auto text-center">
+            <ul className="flex justify-center items-center">
+              <li className="mr-3">
+                <a href="https://www.facebook.com/EEST5MDP/?locale=es_LA">
+                  <img id="fb" src={facebook} alt="Facebook" className="w-8 h-8 rounded-full hover:bg-blue-800" />
+                </a>
+              </li>
+              <li className="mr-3">
+                <a href="https://twitter.com/EEST5MDP">
+                  <img id="tt" src={twitter} alt="Twitter" className="w-8 h-8 rounded-full hover:bg-blue-400" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/tecnicacinco_mdq/?hl=es-la">
+                  <img id="ig" src={instagram} alt="Instagram" className="w-8 h-8 rounded-full hover:bg-pink-600" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
