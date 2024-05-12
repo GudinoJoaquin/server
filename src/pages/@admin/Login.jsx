@@ -8,13 +8,13 @@ function Login() {
         Crear anuncio
       </h2>
 
-      <form method="post" action="http://localhost:1234/admin/login">
+      <form method="post" action="http://192.168.0.18:1501/admin/login">
         <Input label="Usuario" type="text" name="user" />
         <Input label="Contraseña" type="password" name="pass" />
 
         <div className="flex justify-center mt-[20px]">
           <button
-            className="bg-gray-900 border border-gray-900 text-gray-200 px-4 py-2 font-bold rounded-md hover:bg-gray-300 hover:text-gray-900 hover:border border-gray-900 transition duration-[.3s]"
+            className="bg-gray-900 border text-gray-200 px-4 py-2 font-bold rounded-md hover:bg-gray-300 hover:text-gray-900 hover:border border-gray-900 transition duration-[.3s]"
             type="submit"
           >
             Enviar
