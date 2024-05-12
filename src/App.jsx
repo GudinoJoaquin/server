@@ -7,6 +7,7 @@ import Login from "./pages/@admin/Login";
 import checkUser from "./assets/js/checkUser.js";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -31,22 +32,21 @@ function App() {
 
   return (
     <>
-      <Nav />
       {userType !== "admin" ? (
         <>
           {currentPath === "/" && <UserAnuncios />}
-          {currentPath === "/login" && <Login />}
+          {currentPath !== "/" && <Login />}
         </>
       ) : (
         <>
+          <Nav />
           {currentPath === "/" && <AdminAnuncios />}
           {currentPath === "/login" && <Login />}
           {currentPath === "/admin/crearAnuncio" && <CrearAnuncio />}
           {currentPath === "/admin/editarAnuncio" && <ModificarAnuncio />}
+          <Footer />
         </>
       )}
-
-      <Footer />
     </>
   );
 }

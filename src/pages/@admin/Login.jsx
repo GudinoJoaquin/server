@@ -8,7 +8,7 @@ function Login() {
         Crear anuncio
       </h2>
 
-      <form method="post" action="http://192.168.0.18:1501/admin/login">
+      <form method="post" action="http://localhost:1234/admin/login">
         <Input label="Usuario" type="text" name="user" />
         <Input label="Contraseña" type="password" name="pass" />
 

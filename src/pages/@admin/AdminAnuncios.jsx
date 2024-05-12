@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AdminCard from "../../components/AdminCard";
+import ThemeSwitch from "../../components/ThemeSwitch";
 
 function AdminAnuncios() {
   const [anuncios, setAnuncios] = useState([]);
@@ -31,8 +32,8 @@ function AdminAnuncios() {
   const currentAds = anuncios.slice(indexOfFirstAd, indexOfLastAd);
 
   return (
-    <>
-      <header className="flex justify-center items-center gap-[50px] md:mt-[2px] mt-[20px] ml-[10px]">
+    <div className="bg-white dark:bg-slate-900 ">
+      <header className="flex justify-center items-center gap-[50px] md:translate-y-[2px] translate-y-[20px] ml-[10px] dark:text-slate-200">
         <button
           className="text-emerald-600 scale-[1.2] font-bold text-[20px] transition duration-[.3s]"
           onClick={() => handleNavigation("http://localhost:5173/")}
@@ -40,7 +41,7 @@ function AdminAnuncios() {
           Inicio
         </button>
         <button
-          className="hover:text-orange-600 hover:scale-110 font-semibold text-[20px] transition duration-[.3s]"
+          className="hover:text-orange-700 hover:scale-110 font-semibold text-[20px] transition duration-[.3s]"
           onClick={() =>
             handleNavigation("http://localhost:5173/admin/crearAnuncio")
           }
@@ -48,7 +49,7 @@ function AdminAnuncios() {
           Crear anuncio
         </button>
         <button
-          className="hover:text-red-600 hover:scale-110 font-semibold text-[20px] transition duration-[.3s]"
+          className="hover:text-red-800 hover:scale-110 font-semibold text-[20px] transition duration-[.3s]"
           onClick={() =>
             (window.location.href = "http://localhost:1234/logoff")
           }
@@ -56,13 +57,13 @@ function AdminAnuncios() {
           Salir
         </button>
       </header>
-
+      <ThemeSwitch />
       <div className="flex justify-center items-center gap-2 mb-[-50px] mt-[20px]">
         {Array.from(
           { length: Math.ceil(anuncios.length / anunciosPerPage) },
           (_, i) => (
             <button
-              className=" font-semibold underline underline-offset-2 p-[4px] my-2 rounded-sm hover:scale-[1.2] hover:bg-red-100 transition duration-[.3s]"
+              className="dark:text-slate-200 dark:hover:bg-blue-900 font-semibold underline underline-offset-2 p-[4px] my-2 rounded-sm hover:scale-[1.2] hover:bg-red-100 transition duration-[.3s]"
               key={i + 1}
               onClick={() => setCurrentPage(i + 1)}
             >
@@ -89,7 +90,7 @@ function AdminAnuncios() {
           { length: Math.ceil(anuncios.length / anunciosPerPage) },
           (_, i) => (
             <button
-              className=" font-semibold underline underline-offset-2 p-[4px] my-2 rounded-sm hover:scale-[1.2] hover:bg-red-100 transition duration-[.3s]"
+              className="dark:text-slate-200 dark:hover:bg-blue-900 font-semibold underline underline-offset-2 p-[4px] my-2 rounded-sm hover:scale-[1.2] hover:bg-red-100 transition duration-[.3s]"
               key={i + 1}
               onClick={() => setCurrentPage(i + 1)}
             >
@@ -98,7 +99,7 @@ function AdminAnuncios() {
           )
         )}
       </div>
-    </>
+    </div>
   );
 }
 

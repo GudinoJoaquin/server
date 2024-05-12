@@ -72,7 +72,7 @@ function CrearAnuncio() {
 
           <div class="flex justify-center mt-[20px]">
             <button
-              class="bg-gray-900 border border-gray-900 text-gray-200 px-4 py-2 font-bold rounded-md hover:bg-gray-300 hover:text-gray-900 hover:border border-gray-900 transition duration-[.3s]"
+              class="bg-gray-900 border text-gray-200 px-4 py-2 font-bold rounded-md hover:bg-gray-300 hover:text-gray-900 hover:border border-gray-900 transition duration-[.3s]"
               type="submit"
             >
               Enviar
