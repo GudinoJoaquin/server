@@ -6,7 +6,7 @@ import checkUser from "../src/assets/js/checkUser.js";
 import { format } from "date-fns";
 
 const app = express();
-const port = 1234;
+const port = 1501;
 
 const conexion = mysql.createConnection({
   host: "localhost",
@@ -25,8 +25,9 @@ app.post("/admin/enviar-anuncio", (req, res) => {
   const adjunto = req.body.adjunto;
   const fecha = format(new Date(), "dd-MM-yyyy");
 
-  if(img === '' || img == null){
-    img = 'https://lh3.googleusercontent.com/p/AF1QipOMvxtzYmxLLIoY56X1Hh8kkVR3kUASy6Rz38pT=s680-w680-h510'
+  if (img === "" || img == null) {
+    img =
+      "https://lh3.googleusercontent.com/p/AF1QipOMvxtzYmxLLIoY56X1Hh8kkVR3kUASy6Rz38pT=s680-w680-h510";
   }
 
   const sql =
@@ -84,6 +85,7 @@ app.get("/anuncios", (req, res) => {
 app.post("/admin/login", (req, res) => {
   const user = req.body.user;
   const pass = req.body.pass;
+  const ip = req.ip;
 
   const userType = checkUser(user, pass);
 
@@ -91,7 +93,8 @@ app.post("/admin/login", (req, res) => {
   res.cookie("userType", userType, { maxAge: 86400000 });
 
   // Retorna el tipo de usuario como respuesta
-  res.redirect("http://localhost:5173/");
+  // res.redirect("http://localhost:5173/");
+  res.send(ip);
 });
 
 app.get("/logoff", (req, res) => {
@@ -115,5 +118,5 @@ app.delete("/eliminar-anuncio", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening on port http://localhost:${port}`);
+  console.log(`Server listening on port http://192.168.0.18:${port}`);
 });

@@ -7,7 +7,7 @@ function UserAnuncios() {
   const adsPerPage = 5;
 
   useEffect(() => {
-    const url = "http://localhost:1234/anuncios";
+    const url = "http://192.168.0.18:1501/anuncios";
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
