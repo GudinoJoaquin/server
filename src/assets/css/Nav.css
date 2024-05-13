@@ -1,4 +1,8 @@
+*{
+  -webkit-tap-highlight-color: transparent;
+}
 #navbar {
+  z-index: 1000;
   position: fixed;
   top: 0;
   left: -20px;
@@ -10,7 +14,6 @@
   transition: all 0.3s;
   user-select: none;
   pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
-  z-index: 10;
 }
 
 #navbar *,
@@ -19,7 +22,7 @@
   pointer-events: auto; /* Permitimos eventos de puntero en todos los elementos dentro del navbar */
 }
 
-#container {
+.container {
   display: flex;
   flex-direction: column;
   margin-top: 6vw;
@@ -58,38 +61,92 @@
   transition: all 0.3s ease;
   animation: logoAnimation 2s infinite;
   user-select: none;
-  pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
 }
 
-#logo img:hover {
+
+#logo p:hover, img:hover {
   transform: scale(1.1);
-  pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
 }
 
 #logo p {
+  background-color: transparent; /* Fondo negro con transparencia */
+  backdrop-filter: blur(10px); /* Aplica un efecto de desenfoque al fondo */
+  border-radius: 100%;
+  width: fit-content; /* Ajusta el ancho al tamaño máximo del texto */
   color: rgb(255, 0, 0);
   position: relative;
-  left: 80px;
-  top: 10px;
+  left: 20px;
+  top: 50px;
   font-size: 1.5vw;
   cursor: pointer;
   font-weight: 600;
   user-select: none;
-  pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
+  transition: all 0.3s ease;
+  margin-bottom: 80px;
 }
+
 
 #logo p:first-letter {
   color: green;
-  pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
 }
 
-#nav-content img {
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  cursor: default;
+  font-size: 1.5vw;
+  display: flex;
+  user-select: none;
+}
+
+.nav-content img {
   width: 15px;
   transform: translateY(7px);
   margin-left: 10px;
   filter: invert();
   user-select: none;
-  pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
+}
+
+.dropbtn:hover {
+  transition: all .3s ease;
+  transform: scale(1.15);
+  font-weight: 600;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  top: 1px;
+  left: 20px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  user-select: none;
+}
+
+.dropdown-content a {
+  background-color: transparent;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: .5vw;
+  user-select: none;
+}
+
+.dropdown-content a:hover {
+  transition: all .3s ease;
+  transform: scale(1.15);
+  font-weight: 600;
+}
+
+.show {
+  display: block;
+  user-select: none;
 }
 
 @media (max-width: 768px) {
@@ -105,7 +162,7 @@
     transition: all 0.3s;
   }
 
-  #container {
+  .container {
     display: flex;
     flex-direction: column;
     margin-top: 10vw;
@@ -140,11 +197,9 @@
     border-radius: 0%;
     transition: all 0.3s ease;
     animation: logoAnimation 2s infinite;
-    pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
   }
   #logo img:hover {
     transform: scale(1.1);
-    pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
   }
 
   #logo p {
@@ -155,10 +210,8 @@
     font-size: 4vw;
     cursor: pointer;
     font-weight: 600;
-    pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
   }
   #logo p:hover {
     transform: scale(1.1);
-    pointer-events: none; /* Deshabilitamos los eventos de puntero en el navbar */
   }
 }
