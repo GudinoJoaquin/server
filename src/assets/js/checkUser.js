@@ -1,5 +1,5 @@
 export default function checkUser(user, pass, ip) {
-  if (user == "admin" && pass == "admin" && ip === '::1') {
+  if (user == "admin" && pass == "admin") {
     return "admin";
-  } 
-} 
+  }
+}

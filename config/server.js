@@ -85,9 +85,8 @@ app.get("/anuncios", (req, res) => {
 app.post("/admin/login", (req, res) => {
   const user = req.body.user;
   const pass = req.body.pass;
-  const ip = req.ip
 
-  const userType = checkUser(user, pass, ip);
+  const userType = checkUser(user, pass);
 
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
   res.cookie("userType", userType, { maxAge: 86400000 });
