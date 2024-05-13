@@ -17,7 +17,7 @@ function Footer() {
         <div class="footer-content">
             <div class="footer-nav">
                 <ul>
-                <li><button onclick="window.location.href = '../index.html';" class="contact-button">Inicio</button></li>
+                <li><button onclick="window.location.href = '../index.html';" class="contact-button">Contacto</button></li>
                 </ul>                        
             </div>
             <div class="footer-names">
@@ -25,9 +25,9 @@ function Footer() {
           </div>
             <div class="footer-social">
                 <ul>
-                    <li><a href="https://www.facebook.com/EEST5MDP/?locale=es_LA"><img src="../assets/img/facebook.png" alt="Facebook"></a></li>
-                    <li><a href="https://www.instagram.com/tecnicacinco_mdq/?hl=es-la"><img src="../assets/img/instagram.png" alt="Instagram"></a></li>
-                    <li><a href="mailto:infoT5@gmail.com"><img src="../assets/img/correo-electronico (1).png" alt="Gmail"></a></li>
+                    <li><a href="https://www.facebook.com/EEST5MDP/?locale=es_LA"><img src="src/assets/img/facebook.png" alt="Facebook"/></a></li>
+                    <li><a href="https://www.instagram.com/tecnicacinco_mdq/?hl=es-la"><img src="src/assets/img/instagram.png" alt="Instagram"/></a></li>
+                    <li><a href="mailto:infoT5@gmail.com"><img src="src/assets/img/correo.png" alt="Gmail"/></a></li>
                   </ul>
             </div>                  
         </div>

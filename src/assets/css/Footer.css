@@ -127,27 +127,27 @@ footer {
     user-select: none;
   }
   /* Personalización de la sombra para cada red social */
-.footer-social img[src="../assets/img/facebook.png"]:hover {
+.footer-social img[src="src/assets/img/facebook.png"]:hover {
     background-color: rgb(59, 89, 153); /* Cambia el color de fondo al hacer hover para Facebook */
   }
   
-  .footer-social img[src="../assets/img/correo-electronico (1).png"]:hover {
+  .footer-social img[src="src/assets/img/correo.png"]:hover {
     background-color: rgb(255, 0, 0); /* Cambia el color de fondo al hacer hover para Twitter */
   }
 
-  .footer-social img[src="../assets/img/instagram.png"]:hover {
+  .footer-social img[src="src\\assets\\img\\correo.png"]:hover {
     background-color: rgb(216, 40, 119); /* Cambia el color de fondo al hacer hover para Instagram */
   }
 
-  .footer-social img[src="assets/img/facebook.png"]:hover {
+  .footer-social img[src="src/assets/img/facebook.png"]:hover {
     background-color: rgb(59, 89, 153); /* Cambia el color de fondo al hacer hover para Facebook */
   }
   
-  .footer-social img[src="assets/img/correo-electronico (1).png"]:hover {
+  .footer-social img[src="src\\assets\\img\\correo.png"]:hover {
     background-color: rgb(255, 0, 0); /* Cambia el color de fondo al hacer hover para Twitter */
   }
   
-  .footer-social img[src="assets/img/instagram.png"]:hover {
+  .footer-social img[src="src/assets/img/instagram.png"]:hover {
     background-color: rgb(216, 40, 119); /* Cambia el color de fondo al hacer hover para Instagram */
   }
   
