@@ -25,7 +25,7 @@ function Nav() {
         <div id="logo" onClick={ocultar}>
           <div id="logoest" >
             <img src={logo} alt="Logo" />
-            <p>Menu</p>
+            <p>Menú</p>
           </div>
         </div>
         <div id="container">

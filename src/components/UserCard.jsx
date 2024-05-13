@@ -23,7 +23,7 @@ function UserCard({ img, titulo, mensaje, fecha, adjunto }) {
 
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength && screenWidth <= 430) {
-      return text.substring(0, 234) + "...";
+      return text.substring(0, 134) + "...";
     } else if (text.length > maxLength && screenWidth > 430) {
       return text.substring(0, maxLength) + "...";
     }

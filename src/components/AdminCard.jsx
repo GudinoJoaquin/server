@@ -1,8 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function AdminCard({ id, img, titulo, mensaje, fecha, adjunto }) {
   const [showModal, setShowModal] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleNavigation = (path) => {
     setCurrentPath(path);
@@ -40,7 +53,9 @@ function AdminCard({ id, img, titulo, mensaje, fecha, adjunto }) {
   };
 
   const truncateText = (text, maxLength) => {
-    if (text.length > maxLength) {
+    if (text.length > maxLength && screenWidth <= 430) {
+      return text.substring(0, 134) + "...";
+    } else if (text.length > maxLength && screenWidth > 430) {
       return text.substring(0, maxLength) + "...";
     }
     return text;
