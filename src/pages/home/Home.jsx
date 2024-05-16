@@ -3,7 +3,7 @@ import comunicar from "../../assets/img/comunicar.svg";
 import anuncio from "../../assets/img/anuncio-publicitario (1).svg";
 import equipo from "../../assets/img/equipo.svg";
 import experto from "../../assets/img/experto.svg";
-import '../../assets/css/HomeButton.css'
+import "../../assets/css/home.css";
 
 export default function Home() {
   return (
@@ -31,11 +31,7 @@ export default function Home() {
             className="btn-info news"
             onClick={() => redirect("./src/feedback.html")}
           >
-            <img
-              src={anuncio}
-              alt=""
-              width="120px"
-            />
+            <img src={anuncio} alt="" width="120px" />
             <p>
               Feed
               <br /> Back
