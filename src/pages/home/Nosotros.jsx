@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/nosotros.css'
+import '../../assets/css/home.css'
 
 export default function Nosotros() {
   const redirect = (url) => {

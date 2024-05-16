@@ -1,0 +1,18 @@
+.parallax-completo {
+  width: 100%;
+  background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.664) 100%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    url("../img/idi2o.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Añade esta línea para que los elementos se posicionen uno debajo del otro */
+  text-align: center; /* Añade esta línea para centrar el texto */
+}
