@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Input from "../../components/Input";
 
-function CrearAnuncio() {
+export default function CrearAnuncio() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   const handleNavigation = (path) => {
@@ -84,4 +84,3 @@ function CrearAnuncio() {
   );
 }
 
-export default CrearAnuncio;

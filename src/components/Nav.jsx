@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/img/logo.svg";
 
-function Nav() {
+export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isTransparent, setIsTransparent] = useState(true);
 
@@ -71,4 +71,3 @@ function Nav() {
   );
 }
 
-export default Nav;

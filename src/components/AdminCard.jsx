@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function AdminCard({ id, img, titulo, mensaje, fecha, adjunto }) {
+export default function AdminCard({ id, img, titulo, mensaje, fecha, adjunto }) {
   const [showModal, setShowModal] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -142,4 +142,3 @@ function AdminCard({ id, img, titulo, mensaje, fecha, adjunto }) {
   );
 }
 
-export default AdminCard;

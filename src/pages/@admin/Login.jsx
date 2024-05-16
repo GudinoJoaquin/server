@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../components/Input";
 
-function Login() {
+export default function Login() {
   return (
     <div className="max-w-md mx-auto relative overflow-hidden z-10 bg-gray-200 p-8 rounded-lg shadow-md mt-[60px]">
       <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
@@ -24,5 +24,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;

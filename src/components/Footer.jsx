@@ -3,7 +3,7 @@ import facebook from '../assets/img/facebook.png';
 import instagram from '../assets/img/instagram.png';
 import correo from '../assets/img/correo.png';
 
-function Footer() {
+export default function Footer() {
 
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
@@ -49,4 +49,3 @@ function Footer() {
   );
 }
 
-export default Footer;

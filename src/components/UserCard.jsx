@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function UserCard({ img, titulo, mensaje, fecha, adjunto }) {
+export default function UserCard({ img, titulo, mensaje, fecha, adjunto }) {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
@@ -68,4 +68,3 @@ function UserCard({ img, titulo, mensaje, fecha, adjunto }) {
   );
 }
 
-export default UserCard;

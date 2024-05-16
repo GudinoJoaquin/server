@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import UserCard from "../../components/UserCard";
-import Nav from "../../components/Nav";
-import Footer from "../../components/Footer";
 import ThemeSwitch from "../../components/ThemeSwitch";
 
-function UserAnuncios() {
+export default function UserAnuncios() {
   const [anuncios, setAnuncios] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const adsPerPage = 5;
@@ -33,12 +31,11 @@ function UserAnuncios() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Función para manejar el cambio de estado del checkbox
-  
-  
+
   return (
     <>
       <div className="dark:bg-slate-900 h-full over">
-        <ThemeSwitch/>
+        <ThemeSwitch />
         <div className="flex justify-center items-center gap-2 mb-[-50px] ">
           {Array.from(
             { length: Math.ceil(anuncios.length / adsPerPage) },
@@ -82,5 +79,3 @@ function UserAnuncios() {
     </>
   );
 }
-
-export default UserAnuncios;

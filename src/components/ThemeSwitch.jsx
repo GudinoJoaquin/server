@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ThemeSwitch() {
+export default function ThemeSwitch() {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {
@@ -30,4 +30,3 @@ function ThemeSwitch() {
     </div>
   );
 }
-export default ThemeSwitch;

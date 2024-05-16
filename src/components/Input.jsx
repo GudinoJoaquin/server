@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Input({ label, type, name, placeholder, value }) {
+export default function Input({ label, type, name, placeholder, value }) {
   return (
     <div class="mb-4">
       <label class="block text-sm font-medium text-gray-900" for="name">
@@ -17,4 +17,3 @@ function Input({ label, type, name, placeholder, value }) {
   );
 }
 
-export default Input;

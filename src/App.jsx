@@ -9,7 +9,7 @@ import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
-function App() {
+export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [userType, setUserType] = useState("user");
 
@@ -52,5 +52,3 @@ function App() {
     </>
   );
 }
-
-export default App;

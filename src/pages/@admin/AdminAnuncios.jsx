@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AdminCard from "../../components/AdminCard";
 import ThemeSwitch from "../../components/ThemeSwitch";
 
-function AdminAnuncios() {
+export default function AdminAnuncios() {
   const [anuncios, setAnuncios] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const anunciosPerPage = 5;
@@ -102,5 +102,3 @@ function AdminAnuncios() {
     </div>
   );
 }
-
-export default AdminAnuncios;

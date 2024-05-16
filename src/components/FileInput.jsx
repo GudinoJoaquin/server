@@ -1,6 +1,6 @@
 import React from "react";
 
-function FileInput({ label, name }) {
+export default function FileInput({ label, name }) {
   return (
     <div class="grid w-full max-w-xs items-center gap-1.5">
       <label class="text-sm text-gray-900 font-medium ">
@@ -15,5 +15,3 @@ function FileInput({ label, name }) {
     </div>
   );
 }
-
-export default FileInput;
