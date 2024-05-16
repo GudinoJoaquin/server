@@ -9,6 +9,7 @@ import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Home from "./pages/home/Home.jsx";
+// import Nosotros from "./pages/home/Nosotros.jsx";
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -39,6 +40,7 @@ export default function App() {
           {currentPath === "/" && <UserAnuncios />}
           {currentPath === "/login" && <Login />}
           {currentPath === "/home" && <Home />}
+          {currentPath === '/nosotros' && <Nosotros/>}
           <Footer />
         </>
       ) : (
