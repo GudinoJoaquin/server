@@ -8,10 +8,6 @@ import checkUser from "./assets/js/checkUser.js";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import NotFound from "./pages/NotFound.jsx";
-// import Home from "./pages/home/home.jsx";
-// import ContactoPage from "./pages/home/Contacto.jsx";
-// import Especialidades from "./pages/home/Especialidades.jsx";
-// import Nosotros from "./pages/home/Nosotros.jsx";
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -38,11 +34,10 @@ function App() {
     <>
       {userType !== "admin" ? (
         <>
+          <Nav />
           {currentPath === "/" && <UserAnuncios />}
           {currentPath === "/login" && <Login />}
-          {currentPath === "/home" && <Home />}
-          {currentPath === "/contacto" && <ContactoPage />}
-          {currentPath === '/especialidades' && <Especialidades/>}
+          <Footer />
         </>
       ) : (
         <>

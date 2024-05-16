@@ -37,7 +37,6 @@ function UserAnuncios() {
   
   return (
     <>
-      <Nav />
       <div className="dark:bg-slate-900 h-full over">
         <ThemeSwitch/>
         <div className="flex justify-center items-center gap-2 mb-[-50px] ">
@@ -80,7 +79,6 @@ function UserAnuncios() {
           )}
         </div>
       </div>
-      <Footer />
     </>
   );
 }
