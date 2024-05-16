@@ -1,11 +1,11 @@
 import React from "react";
-import comunicar from "../../assets/img/comunicar.svg";
-import anuncio from "../../assets/img/anuncio-publicitario (1).svg";
-import equipo from "../../assets/img/equipo.svg";
-import experto from "../../assets/img/experto.svg";
-import '../../assets/css/HomeButton.css'
+import comunicar from "../assets/img/comunicar.svg";
+import anuncio from "../assets/img/anuncio-publicitario (1).svg";
+import equipo from "../assets/img/equipo.svg";
+import experto from "../assets/img/experto.svg";
+import '../assets/css/HomeButton.css'
 
-export default function Home() {
+export default function HomeButton() {
   return (
     <main>
       <div className="parallax-completo">

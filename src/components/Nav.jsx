@@ -28,9 +28,9 @@ export default function Nav() {
           <img
             src={logo}
             alt="Logo"
-            className="w-20 h-auto bg-transparent backdrop-filter backdrop-blur-sm rounded-full"
+            className="w-20 h-auto bg-transparent"
           />
-          <p className="text-white text-lg font-semibold bg-transparent backdrop-filter backdrop-blur-sm rounded-full">
+          <p className="text-white text-lg font-semibold bg-transparent">
             <span className="text-green-500">M</span>
             <span className="text-red-500">enú</span>
           </p>

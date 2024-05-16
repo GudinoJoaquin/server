@@ -8,6 +8,7 @@ import checkUser from "./assets/js/checkUser.js";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Home from "./pages/home/Home.jsx";
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -34,9 +35,10 @@ export default function App() {
     <>
       {userType !== "admin" ? (
         <>
-          <Nav />
+          {/* <Nav /> */}
           {currentPath === "/" && <UserAnuncios />}
           {currentPath === "/login" && <Login />}
+          {currentPath === "/home" && <Home />}
           <Footer />
         </>
       ) : (
