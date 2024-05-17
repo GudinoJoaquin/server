@@ -115,6 +115,10 @@ app.delete("/eliminar-anuncio", (req, res) => {
   });
 });
 
+app.get('/comprobar', (req, res) => {
+  res.send('Server funcionando')
+})
+
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
 });
