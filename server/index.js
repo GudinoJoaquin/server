@@ -2,7 +2,7 @@ import express from "express";
 import mysql from "mysql2";
 import cors from "cors";
 import bodyParser from "body-parser";
-import checkUser from "../src/assets/js/checkUser.js";
+import checkUser from "../client/src/assets/js/checkUser.js";
 import { format } from "date-fns";
 
 const app = express();
@@ -115,9 +115,9 @@ app.delete("/eliminar-anuncio", (req, res) => {
   });
 });
 
-app.get('/comprobar', (req, res) => {
-  res.send('Server funcionando')
-})
+app.get("/comprobar", (req, res) => {
+  res.send("Server funcionando");
+});
 
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
