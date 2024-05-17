@@ -6,7 +6,7 @@ import checkUser from "../client/src/assets/js/checkUser.js";
 import { format } from "date-fns";
 
 const app = express();
-const port = 1234;
+const port = process.env.port || 1234;
 
 const conexion = mysql.createConnection({
   host: "localhost",
