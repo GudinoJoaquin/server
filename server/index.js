@@ -115,7 +115,7 @@
 //   });
 // });
 
-app.get("/comprobar", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Server funcionando");
 });
 
