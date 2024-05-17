@@ -4,5 +4,11 @@
       "src": "./index.js",
       "use": "@vercel/node"
     }
+  ],
+  "routes": [
+    { "src": "../client/src/pages/@admin/AdminAnuncios.jsx", "dest": "/admin/index.js" },
+    { "src": "/api/(.*)", "dest": "/api/index.js" },
+    { "src": "/usuarios/(.*)", "dest": "/usuarios/index.js" },
+    { "src": "/(.*)", "dest": "/index.js" }
   ]
 }

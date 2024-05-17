@@ -250,6 +250,7 @@
     "path-parse": "^1.0.7",
     "path-scurry": "^1.11.1",
     "path-to-regexp": "^0.1.7",
+    "pg": "^8.11.5",
     "picocolors": "^1.0.1",
     "picomatch": "^2.3.1",
     "pify": "^2.3.0",

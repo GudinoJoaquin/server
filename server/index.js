@@ -6,7 +6,7 @@ import checkUser from "../client/src/assets/js/checkUser.js";
 import { format } from "date-fns";
 
 const app = express();
-const port = process.env.port || 1234;
+const port = 1234;
 
 const conexion = mysql.createConnection({
   host: "localhost",
@@ -115,9 +115,9 @@ app.delete("/eliminar-anuncio", (req, res) => {
   });
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Server funcionando");
-// });
+app.get("/comprobar", (req, res) => {
+  res.send("Server funcionando");
+});
 
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
