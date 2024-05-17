@@ -1,12 +1,12 @@
-// import express from "express";
-// import mysql from "mysql2";
-// import cors from "cors";
-// import bodyParser from "body-parser";
-// import checkUser from "../client/src/assets/js/checkUser.js";
-// import { format } from "date-fns";
+import express from "express";
+import mysql from "mysql2";
+import cors from "cors";
+import bodyParser from "body-parser";
+import checkUser from "../client/src/assets/js/checkUser.js";
+import { format } from "date-fns";
 
-// const app = express();
-// const port = 1234;
+const app = express();
+const port = 1234;
 
 // const conexion = mysql.createConnection({
 //   host: "localhost",
