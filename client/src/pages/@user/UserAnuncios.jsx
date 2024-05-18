@@ -8,7 +8,7 @@ export default function UserAnuncios() {
   const adsPerPage = 5;
 
   useEffect(() => {
-    const url = "http://localhost:1234/anuncios";
+    const url = "https://server-xi-lemon.vercel.app/anuncios";
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
