@@ -9,10 +9,11 @@ const app = express();
 const port = 1234;
 
 const conexion = mysql.createConnection({
-  host: "localhost",
+  host: "monorail.proxy.rlwy.net",
   user: "root",
-  password: "",
-  database: "anuncios",
+  password: "lNvUCqwziZIuxnnSXjGYDDedmJRnxtVS",
+  database: "railway",
+  port: 52220,
 });
 
 app.use(cors());
