@@ -99,7 +99,7 @@ app.get("/logoff", (req, res) => {
   res.redirect("https://eestn5-rho.vercel.app/anuncios/");
 });
 
-app.get("/eliminar-anuncio", (req, res) => {
+app.delete("/eliminar-anuncio", (req, res) => {
   const id = req.query.id;
 
   const sql = "DELETE FROM anuncios WHERE id = ?";
