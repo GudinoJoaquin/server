@@ -88,8 +88,8 @@ app.post("/admin/login", (req, res) => {
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
 
   const page = userType === "admin"
-    ? 'http://localhost:5173/anuncios/admin'
-    : 'http://localhost:5173/anuncios'
+    ? 'https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin'
+    : 'https://eestn5-rho.vercel.app/anuncios/'
   res.redirect(page);
 });
 
