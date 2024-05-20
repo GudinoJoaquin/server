@@ -87,11 +87,10 @@ app.post("/admin/login", (req, res) => {
   const userType = checkUser(user, pass);
 
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
+  res.cookie("userType", userType, { maxAge: 86400000 });
 
-  userType === "onafonfnoiafvno;ifv;noifvonifvnifavnioaf"
-    ? res.cookie("userType", "admin", { maxAge: 86400000 })
-    : res.cookie("userType", "user", { maxAge: 86400000 });
-  res.redirect('http://localhost:5173/anuncios');
+  const page = checkUser === 'admin' ? 'http://localhost:5173/anuncios/fghdfosagjlfdfkjgdlffksjgkldffjgfkdlfsjgklfdgjkljf' : 'http://localhost:5173/anuncios'
+  res.redirect(page);
 });
 
 app.get("/logoff", (req, res) => {
