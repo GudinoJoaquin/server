@@ -22,12 +22,13 @@ export default function UserCard({ img, titulo, mensaje, fecha, adjunto }) {
   }, []);
 
   const truncateText = (text, maxLength) => {
+
     if (text.length > maxLength && screenWidth <= 430) {
       return text.substring(0, 134) + "...";
     } else if (text.length > maxLength && screenWidth > 430) {
       return text.substring(0, maxLength) + "...";
     }
-    return text;
+    return text
   };
 
   return (
@@ -51,6 +52,7 @@ export default function UserCard({ img, titulo, mensaje, fecha, adjunto }) {
         <div className="mt-4 p-4 bg-white dark:bg-slate-800 rounded-md shadow-md">
           <p className="text-black dark:text-white">
             {truncateText(mensaje, 700)}
+            {/* {mensaje} */}
           </p>
           <button
             data-ripple-light="true"

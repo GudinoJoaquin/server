@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-export default function AdminCard({ id, img, titulo, mensaje, fecha, adjunto }) {
+export default function AdminCard({
+  id,
+  img,
+  titulo,
+  mensaje,
+  fecha,
+  adjunto,
+}) {
   const [showModal, setShowModal] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -70,43 +77,37 @@ export default function AdminCard({ id, img, titulo, mensaje, fecha, adjunto }) 
         <div className="p-6 xl:flex-1">
           <div className="flex">
             <div className="flex-1 mr-[20px]">
-              <h5 className="mb-2 block flex-1 font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                {titulo}
-              </h5>
+              <div className="flex">
+                <h5 className="font-bold text-[30px] ">{titulo}</h5>
+                <h5 className="font-semibold text-[20px] ml-[20px] mt-[10px] text-blue-500">
+                  {fecha}
+                </h5>
+              </div>
               <p className="font-sans font-light leading-relaxed text-wrap flex-1">
-                {truncateText(mensaje, 700)}
+                {truncateText(mensaje, 550)}
               </p>
-            </div>
-            <div className="flex-2">
-              <h5 className="mb-2 block flex-1 font-sans text-xl font-semibold leading-snug tracking-normal text-blue-500 dark:text-slate-500 antialiased">
-                {fecha}
-              </h5>
-              <div className="p-6 pt-4 xl:py-0 flex-1">
+              <div className="flex gap-[50px] ml-[20px] mt-[10px]">
                 <button
                   data-ripple-light="true"
                   type="button"
-                  className="select-none mt-[10px] ml-[-20px] rounded-lg bg-blue-500 dark:bg-slate-800 py-[10px] px-[10px] text-center text-nowrap align-middle font-sans text-[14px] font-bold uppercase text-white shadow-md shadow-blue-500/20 dark:shadow-slate-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 dark:hover:shadow-slate-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  className="select-none mt-[10px] ml-[-20px] rounded-lg bg-blue-500 py-[10px] px-[10px] text-center text-nowrap align-middle font-sans text-[14px] font-bold uppercase text-white shadow-md shadow-blue-500/20 dark:shadow-slate-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 dark:hover:shadow-slate-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                   onClick={() => handleNavigation(`${adjunto}`)}
                 >
                   Saber más
                 </button>
-              </div>
-              <div className="p-6 pt-4 xl:py-0 flex-1">
                 <button
                   onClick={handleModificarClick}
                   data-ripple-light="true"
                   type="button"
-                  className="select-none mt-[10px] ml-[-20px] rounded-lg bg-orange-800 py-[10px] px-[10px] text-center text-nowrap align-middle font-sans text-[14px] font-bold uppercase text-white shadow-md shadow-orange-500/20 transition-all hover:shadow-lg hover:shadow-orange-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  className="select-none mt-[10px] ml-[-20px] rounded-lg bg-orange-600 py-[10px] px-[10px] text-center text-nowrap align-middle font-sans text-[14px] font-bold uppercase text-white shadow-md shadow-orange-500/20 transition-all hover:shadow-lg hover:shadow-orange-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 >
                   Modificar
                 </button>
-              </div>
-              <div className="p-6 pt-4 xl:py-0 flex-1">
                 <button
                   onClick={handleEliminarClick}
                   data-ripple-light="true"
                   type="button"
-                  className="select-none mt-[10px] ml-[-20px] rounded-lg bg-red-900 py-[10px] px-[10px] text-center text-nowrap align-middle font-sans text-[14px] font-bold uppercase text-white shadow-md shadow-red-700/20 transition-all hover:shadow-lg hover:shadow-red-700/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  className="select-none mt-[10px] ml-[-20px] rounded-lg bg-red-600 py-[10px] px-[10px] text-center text-nowrap align-middle font-sans text-[14px] font-bold uppercase text-white shadow-md shadow-red-700/20 transition-all hover:shadow-lg hover:shadow-red-700/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 >
                   Descartar
                 </button>
@@ -141,4 +142,3 @@ export default function AdminCard({ id, img, titulo, mensaje, fecha, adjunto }) 
     </div>
   );
 }
-

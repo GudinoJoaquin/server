@@ -20,16 +20,13 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/admin/enviar-anuncio", (req, res) => {
-  const titulo = req.body.titulo;
-  const mensaje = req.body.mensaje;
-  let img = req.body.imagen;
-  const adjunto = req.body.adjunto;
+  const titulo = req.body.titulo || "Titulo";
+  const mensaje = req.body.mensaje || "Mensaje";
+  let img =
+    req.body.imagen ||
+    "https://lh3.googleusercontent.com/p/AF1QipOMvxtzYmxLLIoY56X1Hh8kkVR3kUASy6Rz38pT=s680-w680-h510";
+  const adjunto = req.body.adjunto || "https://eest5mdp.edu.ar";
   const fecha = format(new Date(), "dd-MM-yyyy");
-
-  if (img === "" || img == null) {
-    img =
-      "https://lh3.googleusercontent.com/p/AF1QipOMvxtzYmxLLIoY56X1Hh8kkVR3kUASy6Rz38pT=s680-w680-h510";
-  }
 
   const sql =
     "INSERT INTO anuncios (fecha, titulo, mensaje, imagen, contenido_adjunto) VALUES (?, ?, ?, ?, ?)";

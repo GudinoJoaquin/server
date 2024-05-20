@@ -33,7 +33,7 @@ export default function AdminAnuncios() {
 
   return (
     <div className="bg-white dark:bg-slate-900 ">
-      <header className="flex justify-center items-center gap-[50px] md:translate-y-[2px] translate-y-[20px] ml-[10px] dark:text-slate-200">
+      <header className="flex justify-end items-center gap-[50px] md:translate-y-[2px] translate-y-[20px] ml-[10px] dark:text-slate-200">
         <button
           className="text-emerald-600 scale-[1.2] font-bold text-[20px] transition duration-[.3s]"
           onClick={() => handleNavigation("http://localhost:5173/")}
@@ -41,7 +41,7 @@ export default function AdminAnuncios() {
           Inicio
         </button>
         <button
-          className="hover:text-orange-700 hover:scale-110 font-semibold text-[20px] transition duration-[.3s]"
+          className="hover:text-orange-500 hover:scale-110 font-semibold text-[20px] transition duration-[.3s]"
           onClick={() =>
             handleNavigation("http://localhost:5173/admin/crearAnuncio")
           }
@@ -49,15 +49,15 @@ export default function AdminAnuncios() {
           Crear anuncio
         </button>
         <button
-          className="hover:text-red-800 hover:scale-110 font-semibold text-[20px] transition duration-[.3s]"
+          className="hover:text-red-500 hover:scale-110 font-semibold text-[20px] transition duration-[.3s]"
           onClick={() =>
             (window.location.href = "http://localhost:1234/logoff")
           }
         >
           Salir
         </button>
-      </header>
       <ThemeSwitch />
+      </header>
       <div className="flex justify-center items-center gap-2 mb-[-50px] mt-[20px]">
         {Array.from(
           { length: Math.ceil(anuncios.length / anunciosPerPage) },
