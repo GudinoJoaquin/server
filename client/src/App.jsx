@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import UserAnuncios from "./pages/@user/UserAnuncios";
 import AdminAnuncios from "./pages/@admin/AdminAnuncios";
 import CrearAnuncio from "./pages/@admin/CrearAnuncio";
@@ -30,9 +30,22 @@ export default function App() {
     <Router>
       <Nav />
       <Routes>
-        <Route path="anuncios.vercel.app/" element={<UserAnuncios />} />
-        <Route path="anuncios.vercel.app/admin" element={<AdminAnuncios />} />
-        <Route path="anuncios.vercel.app/login" element={<Login />} />
+        {userType !== "admin" ? (
+          <>
+            <Route path="/" element={<UserAnuncios />} />
+            <Route path="/login" element={<Login />} />
+            {/* Asegúrate de descomentar estas líneas si Home y Nosotros están definidos */}
+            {/* <Route path="/home" element={<Home />} /> */}
+            {/* <Route path="/nosotros" element={<Nosotros />} /> */}
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<AdminAnuncios />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin/crearAnuncio" element={<CrearAnuncio />} />
+            <Route path="/admin/editarAnuncio" element={<ModificarAnuncio />} />
+          </>
+        )}
       </Routes>
       <Footer />
     </Router>
