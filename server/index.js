@@ -37,7 +37,9 @@ app.post("/admin/enviar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin");
+    res.redirect(
+      "https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin"
+    );
   });
 });
 
@@ -110,7 +112,9 @@ app.delete("/eliminar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.send("Anuncio eliminado correctamente");
+    res.redirect(
+      "http://localhost:5173/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin"
+    );
   });
 });
 
