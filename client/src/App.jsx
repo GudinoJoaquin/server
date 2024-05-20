@@ -30,7 +30,10 @@ export default function App() {
     <Router>
       <Nav />
       <Routes>
-        <Route path="/" element={<AdminAnuncios/>}/>
+        <Route path="/" render={() => {
+          userType !== 'admin' ? <UserAnuncios/> : <AdminAnuncios />
+        }}/>
+        <Route poth='/login' element={<Login/>}/>
       </Routes>
       <Footer />
     </Router>
