@@ -30,23 +30,7 @@ export default function App() {
     <Router>
       <Nav />
       <Routes>
-        {userType !== "admin" ? (
-          <>
-            <Route path="/" element={<UserAnuncios />} />
-            <Route path="/login" element={<Login />} />
-            {/* Asegúrate de descomentar estas líneas si Home y Nosotros están definidos */}
-            {/* <Route path="/home" element={<Home />} /> */}
-            {/* <Route path="/nosotros" element={<Nosotros />} /> */}
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<AdminAnuncios />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/admin/crearAnuncio" element={<CrearAnuncio />} />
-            <Route path="/admin/editarAnuncio" element={<ModificarAnuncio />} />
-          </>
-        )}
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<AdminAnuncios/>}/>
       </Routes>
       <Footer />
     </Router>
