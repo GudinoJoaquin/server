@@ -84,7 +84,7 @@ app.post("/admin/login", (req, res) => {
   const user = req.body.user;
   const pass = req.body.pass;
 
-  const userType = checkUser('admin', 'admin');
+  const userType = checkUser(user, pass);
 
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
   res.cookie("userType", userType, { maxAge: 86400000 });
