@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Input from "../../components/Input";
+import ThemeSwitch from "../../components/ThemeSwitch";
 
 export default function CrearAnuncio() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -10,10 +11,10 @@ export default function CrearAnuncio() {
   };
 
   return (
-    <>
-      <header className="flex justify-center items-center gap-[50px] md:mt-[2px] mt-[20px] ml-[10px]">
+    <div className="bg-white dark:bg-slate-900 mt-[-2px] h-[100vh]">
+      <header className="flex justify-end items-center gap-[50px] md:mt-[2px] mt-[20px] ml-[10px]">
         <button
-          className="hover:text-emerald-600 hover:scale-[1.2] font-semibold text-[20px] transition duration-[.3s]"
+          className="hover:text-emerald-600 hover:scale-[1.2] font-semibold text-[20px] transition duration-[.3s] dark:text-white"
           onClick={() => handleNavigation("http://localhost:5173/")}
         >
           Inicio
@@ -27,17 +28,18 @@ export default function CrearAnuncio() {
           Crear anuncio
         </button>
         <button
-          className="hover:text-red-600 hover:scale-110 font-semibold text-[20px] transition duration-[.3s]"
+          className="hover:text-red-600 hover:scale-110 font-semibold text-[20px] transition duration-[.3s] dark:text-white"
           onClick={() =>
             (window.location.href = "http://localhost:1234/logoff")
           }
         >
           Salir
         </button>
+        <ThemeSwitch />
       </header>
       {currentPath === "/" && <AdminAnuncios />}
-      <div class="max-w-md mx-auto relative overflow-hidden z-10 bg-gray-200 p-8 rounded-lg shadow-2xl mt-[60px]">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+      <div class="max-w-md mx-auto relative overflow-hidden z-10 bg-gray-200 dark:bg-slate-950 p-8 rounded-lg shadow-2xl mt-[40px]">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-slate-200 mb-6 text-center">
           Crear anuncio
         </h2>
 
@@ -47,11 +49,11 @@ export default function CrearAnuncio() {
           {/* <FileInput label='Subir imagen o pdf' name='imagen'/> */}
 
           <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-900" for="bio">
+            <label class="block text-sm font-medium text-gray-900 dark:text-slate-200" for="bio">
               Mensaje
             </label>
             <textarea
-              class="mt-1 p-2 w-full bg-gray-300 border-none focus:outline-none  rounded-md text-gray-900 resize-none"
+              class="mt-1 p-2 w-full bg-gray-300 dark:bg-slate-900 dark:text-slate-200 border-none focus:outline-none  rounded-md text-gray-900 resize-none"
               rows="3"
               name="mensaje"
               id="bio"
@@ -72,7 +74,7 @@ export default function CrearAnuncio() {
 
           <div class="flex justify-center mt-[20px]">
             <button
-              class="bg-gray-900 border text-gray-200 px-4 py-2 font-bold rounded-md hover:bg-gray-300 hover:text-gray-900 hover:border border-gray-900 transition duration-[.3s]"
+              class="bg-gray-900 dark:bg-slate-200 dark:text-slate-950 dark:hover:bg-slate-950 dark:hover:text-slate-200 dark:hover:border-2 dark:hover:border-slate-200 border text-gray-200 px-4 py-2 font-bold rounded-md hover:bg-gray-300 hover:text-gray-900 hover:border border-gray-900 transition duration-[.3s]"
               type="submit"
             >
               Enviar
@@ -80,7 +82,7 @@ export default function CrearAnuncio() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

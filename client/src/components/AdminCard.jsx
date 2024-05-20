@@ -128,8 +128,8 @@ export default function AdminCard({
       </div>
       {showModal && (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <p className="text-lg text-gray-800 mb-4">
+          <div className="bg-white dark:bg-slate-950 p-8 rounded-lg shadow-md">
+            <p className="text-lg text-gray-800 dark:text-slate-200 mb-4">
               ¿Estás seguro de que deseas eliminar este anuncio?
             </p>
             <div className="flex justify-center">
