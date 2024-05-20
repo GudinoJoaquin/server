@@ -30,8 +30,9 @@ export default function App() {
     <Router>
       <Nav />
       <Routes>
-        <Route path="/" element={<UserAnuncios/>}/>
-        <Route path="/admin" element={<AdminAnuncios/>}/>
+        <Route path="anuncios.vercel.app/" element={<UserAnuncios />} />
+        <Route path="anuncios.vercel.app/admin" element={<AdminAnuncios />} />
+        <Route path="anuncios.vercel.app/login" element={<Login />} />
       </Routes>
       <Footer />
     </Router>
