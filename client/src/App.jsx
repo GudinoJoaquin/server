@@ -5,7 +5,7 @@ import AdminAnuncios from "./pages/@admin/AdminAnuncios";
 import CrearAnuncio from "./pages/@admin/CrearAnuncio";
 import ModificarAnuncio from "./pages/@admin/ModificarAnuncios";
 import Login from "./pages/@admin/Login";
-import Nav from "./components/Nav.jsx";
+import Nav from "../../server/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import NotFound from "./pages/NotFound.jsx";
 // import Home from "./pages/home/Home.jsx";

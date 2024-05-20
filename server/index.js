@@ -2,7 +2,7 @@ import express from "express";
 import mysql from "mysql2";
 import cors from "cors";
 import bodyParser from "body-parser";
-import checkUser from "../client/src/assets/js/checkUser.js";
+import checkUser from "./checkUser.js";
 import { format } from "date-fns";
 
 const app = express();
