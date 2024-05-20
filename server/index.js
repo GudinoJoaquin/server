@@ -90,7 +90,7 @@ app.post("/admin/login", (req, res) => {
   res.cookie("userType", userType, { maxAge: 86400000 });
 
   // Retorna el tipo de usuario como respuesta
-  res.redirect("http://localhost:5173/");
+  res.redirect("http://localhost:5174/anuncios/admin");
 });
 
 app.get("/logoff", (req, res) => {

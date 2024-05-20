@@ -1,20 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import logo from "../assets/img/logo.svg";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isTransparent, setIsTransparent] = useState(true);
+  const navRef = useRef();
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
     setIsTransparent(!isTransparent);
   };
 
+  const handleClickOutside = (event) => {
+    if (navRef.current && !navRef.current.contains(event.target)) {
+      setIsNavOpen(false);
+      setIsTransparent(true);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <header>
       <nav
+        ref={navRef}
         id="navbar"
-        className={`fixed h-full top-[-15px] ${
+        className={`fixed h-[120vh] top-[-15px] ${
           isTransparent
             ? "bg-transparent left-[-50px]"
             : "bg-black bg-opacity-90 left-0"
@@ -22,14 +39,10 @@ export default function Nav() {
       >
         <div
           id="logo"
-          className="cursor-pointer flex flex-col items-center justify-center h-28 p-2 pointer-events-auto"
+          className="cursor-pointer flex flex-col items-center justify-center h-28 p-2 pointer-events-auto "
           onClick={toggleNav}
         >
-          <img
-            src={logo}
-            alt="Logo"
-            className="w-20 h-auto bg-transparent"
-          />
+          <img src={logo} alt="Logo" className="w-20 h-auto bg-transparent" />
           <p className="text-white text-lg font-semibold bg-transparent">
             <span className="text-green-500">M</span>
             <span className="text-red-500">enú</span>
@@ -41,33 +54,32 @@ export default function Nav() {
             isNavOpen ? "flex" : "hidden"
           }`}
         >
-          <a
-            href="https://gudinojoaquin.github.io/home-eestn5/"
-            className="text-lg text-slate-200 mx-auto transition duration-500 ease-in-out hover:text-green-500"
+          <Link
+            to="/"
+            className="text-lg text-slate-200 mx-auto transition duration-300 ease-in-out hover:text-green-500"
           >
             Inicio
-          </a>
-          <a
-            href="https://gudinojoaquin.github.io/home-eestn5/src/especialidades"
-            className="text-lg text-slate-200 mx-auto transition duration-500 ease-in-out hover:text-green-500"
+          </Link>
+          <Link
+            to="../Especialidades"
+            className="text-lg text-slate-200 mx-auto transition duration-300 ease-in-out hover:text-green-500"
           >
             Especialidades
-          </a>
-          <a
-            href="https://gudinojoaquin.github.io/home-eestn5/src/nostros"
-            className="text-lg text-slate-200 mx-auto transition duration-500 ease-in-out hover:text-green-500"
+          </Link>
+          <Link
+            to="../Nosotros"
+            className="text-lg text-slate-200 mx-auto transition duration-300 ease-in-out hover:text-green-500"
           >
             Nosotros
-          </a>
-          <a
-            href="https://gudinojoaquin.github.io/home-eestn5/src/contacto"
-            className="text-lg text-slate-200 mx-auto transition duration-500 ease-in-out hover:text-green-500"
+          </Link>
+          <Link
+            to="../Contacto"
+            className="text-lg text-slate-200 mx-auto transition duration-300 ease-in-out hover:text-green-500"
           >
             Contacto
-          </a>
+          </Link>
         </div>
       </nav>
     </header>
   );
 }
-

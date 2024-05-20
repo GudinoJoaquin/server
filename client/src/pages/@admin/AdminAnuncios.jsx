@@ -33,7 +33,7 @@ export default function AdminAnuncios() {
 
   return (
     <div className="bg-white dark:bg-slate-900 ">
-      <header className="flex justify-end items-center gap-[50px] md:translate-y-[2px] translate-y-[20px] ml-[10px] dark:text-slate-200">
+      <header className="flex justify-end items-center gap-[30px] md:translate-y-[2px] translate-y-[20px] ml-[10px] dark:text-slate-200">
         <button
           className="text-emerald-600 scale-[1.2] font-bold text-[20px] transition duration-[.3s]"
           onClick={() => handleNavigation("http://localhost:5173/")}
