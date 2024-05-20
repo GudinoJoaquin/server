@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import UserAnuncios from "./pages/@user/UserAnuncios";
 import AdminAnuncios from "./pages/@admin/AdminAnuncios";
 import CrearAnuncio from "./pages/@admin/CrearAnuncio";
@@ -30,10 +30,8 @@ export default function App() {
     <Router>
       <Nav />
       <Routes>
-        <Route path="/" render={() => {
-          userType !== 'admin' ? <UserAnuncios/> : <AdminAnuncios />
-        }}/>
-        <Route poth='/login' element={<Login/>}/>
+        <Route path="/" element={<UserAnuncios/>}/>
+        <Route path="/admin" element={<AdminAnuncios/>}/>
       </Routes>
       <Footer />
     </Router>
