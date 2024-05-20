@@ -89,8 +89,8 @@ app.post("/admin/login", (req, res) => {
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
   res.cookie("userType", userType, { maxAge: 86400000 });
 
-  const page = userType === 'admin' ? 'http://localhost:5173/anuncios/admin' : 'http://localhost:5173/anuncios'
-  res.redirect(page);
+  const page = userType === 'admin' ? res.cookie("userType", 'admin', { maxAge: 86400000 }) : res.cookie("userType", 'user', { maxAge: 86400000 })
+  res.redirect('http://localhost:5173/anuncios');
 });
 
 app.get("/logoff", (req, res) => {
