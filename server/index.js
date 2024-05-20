@@ -85,16 +85,12 @@ app.post("/admin/login", (req, res) => {
   const pass = req.body.pass;
 
   const userType = checkUser(user, pass);
-
-  setTimeout(() => {
-    console.log(`${user} | ${pass}`);
-  }, 100000);
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
 
-  userType === "admin"
-    ? res.cookie("userType", "admin", { maxAge: 86400000 })
-    : res.cookie("userType", "user", { maxAge: 86400000 });
-  res.redirect("http://localhost:5173/anuncios");
+  const page = userType === "admin"
+    ? 'http://localhost:5173/anuncios/admin'
+    : 'http://localhost:5173/anuncios'
+  res.redirect(page);
 });
 
 app.get("/logoff", (req, res) => {
