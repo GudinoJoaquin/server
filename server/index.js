@@ -59,7 +59,7 @@ app.post("/admin/editar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("https://eestn5-rho.vercel.app/anuncios/admin");
+    res.redirect("https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin");
   });
 });
 
