@@ -37,7 +37,7 @@ app.post("/admin/enviar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("http://localhost:5173/");
+    res.redirect("https://eestn5-rho.vercel.app/anuncios/admin");
   });
 });
 
@@ -57,7 +57,7 @@ app.post("/admin/editar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("http://localhost:5173/");
+    res.redirect("https://eestn5-rho.vercel.app/anuncios/admin");
   });
 });
 
@@ -87,15 +87,16 @@ app.post("/admin/login", (req, res) => {
   const userType = checkUser(user, pass);
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
 
-  const page = userType === "admin"
-    ? 'https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin'
-    : 'https://eestn5-rho.vercel.app/anuncios/'
+  const page =
+    userType === "admin"
+      ? "https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin"
+      : "https://eestn5-rho.vercel.app/anuncios/";
   res.redirect(page);
 });
 
 app.get("/logoff", (req, res) => {
   res.clearCookie("userType");
-  res.redirect("http://localhost:5173/");
+  res.redirect("https://eestn5-rho.vercel.app/anuncios/");
 });
 
 app.delete("/eliminar-anuncio", (req, res) => {
