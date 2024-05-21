@@ -101,7 +101,7 @@ app.post("/admin/login", (req, res) => {
   res.cookie("UserType", userType, { maxAge: 86400000000 });
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
 
-  res.redirect('http://localhost:5173/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin')
+  res.redirect('http://localhost:5173/anuncios/')
 });
 
 app.get("/logoff", (req, res) => {
