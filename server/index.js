@@ -2,11 +2,22 @@ import express from "express";
 import mysql from "mysql2";
 import cors from "cors";
 import bodyParser from "body-parser";
-import checkUser from "./checkUser.js";
 import { format } from "date-fns";
 
 const app = express();
 const port = 1234;
+
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+
+const checkUser = (user, pass) => {
+  if (user === "admin" && pass === "admin") {
+    return "admin";
+  } else {
+    return "user";
+  }
+};
 
 const conexion = mysql.createConnection({
   host: "monorail.proxy.rlwy.net",
@@ -15,9 +26,6 @@ const conexion = mysql.createConnection({
   database: "railway",
   port: 52220,
 });
-
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/admin/enviar-anuncio", (req, res) => {
   const titulo = req.body.titulo || "Titulo";
@@ -59,7 +67,9 @@ app.post("/admin/editar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin");
+    res.redirect(
+      "https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin"
+    );
   });
 });
 
@@ -86,14 +96,12 @@ app.post("/admin/login", (req, res) => {
   const user = req.body.user;
   const pass = req.body.pass;
 
+  console.log(`${user} || ${pass}`)
   const userType = checkUser(user, pass);
+  res.cookie("UserType", userType, { maxAge: 86400000000 });
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
 
-  const page =
-    userType === "admin"
-      ? "https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin"
-      : "https://eestn5-rho.vercel.app/anuncios/";
-  res.redirect(page);
+  res.redirect('http://localhost:5173/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin')
 });
 
 app.get("/logoff", (req, res) => {
