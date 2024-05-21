@@ -9,7 +9,7 @@ const port = 1234;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 const checkUser = (user, pass) => {
   if (user === "admin" && pass === "admin") {
@@ -96,16 +96,16 @@ app.post("/admin/login", (req, res) => {
   const user = req.body.user;
   const pass = req.body.pass;
 
-  console.log(`${user} || ${pass}`)
+  console.log(`${user} || ${pass}`);
   const userType = checkUser(user, pass);
   res.cookie("UserType", userType, { maxAge: 86400000000 });
   // Guarda el tipo de usuario en una cookie con expiración de 1 día
 
-  res.redirect('http://localhost:5173/anuncios/')
+  res.redirect("/anuncios/");
 });
 
 app.get("/logoff", (req, res) => {
-  res.cookie("UserType", 'user', { maxAge: 86400000000 });
+  res.cookie("UserType", "user", { maxAge: 86400000000 });
 
   res.redirect("https://eestn5-rho.vercel.app/anuncios/");
 });
