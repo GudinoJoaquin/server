@@ -11,14 +11,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const checkUser = (user, pass) => {
-  if (user === "admin" && pass === "admin") {
-    return "admin";
-  } else {
-    return null;
-  }
-};
-
 const conexion = mysql.createConnection({
   host: "monorail.proxy.rlwy.net",
   user: "root",
@@ -46,7 +38,7 @@ app.post("/admin/enviar-anuncio", (req, res) => {
       return;
     }
     res.redirect(
-      "https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin"
+      "http://localhost:5173/anuncios/"
     );
   });
 });
@@ -68,7 +60,7 @@ app.post("/admin/editar-anuncio", (req, res) => {
       return;
     }
     res.redirect(
-      "https://eestn5-rho.vercel.app/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin"
+      "http://localhost:5173/anuncios/"
     );
   });
 });
@@ -92,21 +84,6 @@ app.get("/anuncios", (req, res) => {
   });
 });
 
-app.post("/admin/login", (req, res) => {
-  const user = req.body.user;
-  const pass = req.body.pass;
-  const userType = checkUser(user, pass);
-
-  res.cookie("UserType", userType, { maxAge: 86400000 }); // Establece la cookie con una duración de 1 día
-  
-  res.redirect('http://localhost:5173/anuncios')
-});
-
-app.get("/logoff", (req, res) => {
-  res.clearCookie("UserType");
-  res.redirect("https://eestn5-rho.vercel.app/anuncios/");
-});
-
 app.delete("/eliminar-anuncio", (req, res) => {
   const id = req.query.id;
 
@@ -119,7 +96,7 @@ app.delete("/eliminar-anuncio", (req, res) => {
       return;
     }
     res.redirect(
-      "http://localhost:5173/anuncios/adminadminadminadminadminadminadminadminadminadminadminadmin"
+      "http://localhost:5173/anuncios/"
     );
   });
 });
