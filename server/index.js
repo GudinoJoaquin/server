@@ -105,7 +105,8 @@ app.post("/admin/login", (req, res) => {
 });
 
 app.get("/logoff", (req, res) => {
-  res.clearCookie("userType");
+  res.cookie("UserType", 'user', { maxAge: 86400000000 });
+
   res.redirect("https://eestn5-rho.vercel.app/anuncios/");
 });
 
