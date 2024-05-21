@@ -95,18 +95,19 @@ app.get("/anuncios", (req, res) => {
 app.post("/admin/login", (req, res) => {
   const user = req.body.user;
   const pass = req.body.pass;
-
-  console.log(`${user} || ${pass}`);
   const userType = checkUser(user, pass);
-  res.cookie("UserType", userType, { maxAge: 86400000000 });
-  // Guarda el tipo de usuario en una cookie con expiración de 1 día
-
-  res.redirect("http://localhost:5173/anuncios/");
+  
+  if (userType) {
+    res.cookie("UserType", userType, { maxAge: 86400000 }); // Establece la cookie con una duración de 1 día
+    res.redirect("/anuncios"); // Redirige al usuario a la página de anuncios
+  } else {
+    res.redirect("/login"); // Redirige al usuario a la página de inicio de sesión si las credenciales son incorrectas
+  }
 });
 
-app.get("/logoff", (req, res) => {
-  res.clearCookie('UserType')
 
+app.get("/logoff", (req, res) => {
+  res.clearCookie("UserType");
   res.redirect("https://eestn5-rho.vercel.app/anuncios/");
 });
 
