@@ -99,7 +99,7 @@ app.post("/admin/login", (req, res) => {
   
   if (userType) {
     res.cookie("UserType", userType, { maxAge: 86400000 }); // Establece la cookie con una duración de 1 día
-    res.redirect("/anuncios"); // Redirige al usuario a la página de anuncios
+    res.redirect("http://localhost:5173/anuncios"); // Redirige al usuario a la página de anuncios
   } else {
     res.redirect("/login"); // Redirige al usuario a la página de inicio de sesión si las credenciales son incorrectas
   }
