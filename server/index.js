@@ -37,9 +37,7 @@ app.post("/admin/enviar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect(
-      "http://localhost:5173/anuncios/"
-    );
+    res.redirect("http://localhost:5173/anuncios/");
   });
 });
 
@@ -59,9 +57,7 @@ app.post("/admin/editar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect(
-      "http://localhost:5173/anuncios/"
-    );
+    res.redirect("http://localhost:5173/anuncios/");
   });
 });
 
@@ -95,10 +91,35 @@ app.delete("/eliminar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect(
-      "http://localhost:5173/anuncios/"
-    );
+    res.redirect("http://localhost:5173/anuncios/");
   });
+});
+
+app.post("/login", (req, res) => {
+  const user = req.body.user;
+  const pass = req.body.pass;
+
+  if (user === "admin" && pass === "hola") {
+    res.cookie("userType", pass, {
+      maxAge: 86400000,
+      httpOnly: false,
+      sameSite: "Lax",
+    });
+    res.redirect("http://localhost:5173/anuncios");
+  } else {
+    res.cookie("userType", "user", {
+      
+      maxAge: 86400000,
+      httpOnly: false,
+      sameSite: "Lax",
+    });
+    res.redirect("http://localhost:5173/anuncios");
+  }
+});
+
+app.post("/logout", (req, res) => {
+  res.clearCookie("userType");
+  res.redirect("http://localhost:5173/anuncios");
 });
 
 app.get("/comprobar", (req, res) => {
