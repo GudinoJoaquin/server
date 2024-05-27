@@ -37,7 +37,7 @@ app.post("/admin/enviar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("http://localhost:5173/anuncios/");
+    res.redirect("https://eest5mdp.edu.ar/anuncios/");
   });
 });
 
@@ -57,7 +57,7 @@ app.post("/admin/editar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("http://localhost:5173/anuncios/");
+    res.redirect("https://eest5mdp.edu.ar/anuncios/");
   });
 });
 
@@ -91,7 +91,7 @@ app.delete("/eliminar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("http://localhost:5173/anuncios/");
+    res.redirect("https://eest5mdp.edu.ar/anuncios/");
   });
 });
 
@@ -105,7 +105,7 @@ app.post("/login", (req, res) => {
       httpOnly: false,
       sameSite: "Lax",
     });
-    res.redirect("http://localhost:5173/anuncios");
+    res.redirect("https://eest5mdp.edu.ar/anuncios");
   } else {
     res.cookie("userType", "user", {
       
@@ -113,13 +113,13 @@ app.post("/login", (req, res) => {
       httpOnly: false,
       sameSite: "Lax",
     });
-    res.redirect("http://localhost:5173/anuncios");
+    res.redirect("https://eest5mdp.edu.ar/anuncios");
   }
 });
 
 app.post("/logout", (req, res) => {
   res.clearCookie("userType");
-  res.redirect("http://localhost:5173/anuncios");
+  res.redirect("https://eest5mdp.edu.ar/anuncios");
 });
 
 app.get("/comprobar", (req, res) => {
