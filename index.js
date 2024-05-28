@@ -101,7 +101,7 @@ app.delete("/eliminar-anuncio", (req, res) => {
 app.get("/Comprobar", async (req, res) => {
   const { data, error } = await resend.emails.send({
     from: "Acme <onboarding@resend.dev>",
-    to: ["facundocuentayt@gmail.com"],
+    to: ["gudinojoaquin06@gmail.com"],
     subject: "Mensaje Enviado todo okey",
     html: "<strong>gudi si te llega sos gey!</strong>",
   });
