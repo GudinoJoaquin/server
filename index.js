@@ -3,7 +3,7 @@ import mysql from "mysql2";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { format } from "date-fns";
-import { HOME } from "./CONST";
+import { HOME } from "./CONST.js";
 
 const app = express();
 const port = 1234;
