@@ -8,7 +8,7 @@ import { Resend } from "resend";
 
 const app = express();
 const port = 1234;
-const resend = new Resend("re_123456789");
+const resend = new Resend("re_Uw4YrNtD_MgaQuJobYCyYHpuVwv6dxx2F");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
