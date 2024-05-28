@@ -103,7 +103,7 @@ app.get("/Comprobar", async (req, res) => {
     from: "Acme <onboarding@resend.dev>",
     to: ["gudinojoaquin06@gmail.com"],
     subject: "Mensaje Enviado todo okey",
-    html: "<strong>it works!</strong>",
+    html: "<strong>gudi si te llega sos gey!</strong>",
   });
 
   if (error) {
