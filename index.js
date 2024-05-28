@@ -92,7 +92,7 @@ app.delete("/eliminar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect(HOME);
+    res.redirect('http://localhost:5173');
   });
 });
 
