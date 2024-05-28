@@ -3,6 +3,7 @@ import mysql from "mysql2";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { format } from "date-fns";
+import { HOME } from "./CONST";
 
 const app = express();
 const port = 1234;
@@ -37,7 +38,7 @@ app.post("/admin/enviar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("https://eest5mdp.edu.ar/anuncios/");
+    res.redirect(HOME);
   });
 });
 
@@ -57,7 +58,7 @@ app.post("/admin/editar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("https://eest5mdp.edu.ar/anuncios/");
+    res.redirect(HOME);
   });
 });
 
@@ -91,36 +92,10 @@ app.delete("/eliminar-anuncio", (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.redirect("https://eest5mdp.edu.ar/anuncios/");
+    res.redirect(HOME);
   });
 });
 
-app.post("/login", (req, res) => {
-  const user = req.body.user;
-  const pass = req.body.pass;
-
-  if (user === "admin" && pass === "hola") {
-    res.cookie("userType", pass, {
-      maxAge: 86400000,
-      httpOnly: false,
-      sameSite: "Lax",
-    });
-    res.redirect("https://eest5mdp.edu.ar/anuncios");
-  } else {
-    res.cookie("userType", "user", {
-      
-      maxAge: 86400000,
-      httpOnly: false,
-      sameSite: "Lax",
-    });
-    res.redirect("https://eest5mdp.edu.ar/anuncios");
-  }
-});
-
-app.post("/logout", (req, res) => {
-  res.clearCookie("userType");
-  res.redirect("https://eest5mdp.edu.ar/anuncios");
-});
 
 app.get("/comprobar", (req, res) => {
   res.send("Server funcionando");

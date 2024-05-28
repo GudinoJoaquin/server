@@ -1,0 +1,1 @@
+export const HOME = 'http://localhost:5173'
