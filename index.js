@@ -4,9 +4,11 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { format } from "date-fns";
 import { HOME } from "./CONST.js";
+import { Resend } from "resend";
 
 const app = express();
 const port = 1234;
+const resend = new Resend("re_123456789");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -96,8 +98,19 @@ app.delete("/eliminar-anuncio", (req, res) => {
   });
 });
 
-app.get("/comprobar", (req, res) => {
-  res.send("Server funcionando");
+app.get("/Comprobar", async (req, res) => {
+  const { data, error } = await resend.emails.send({
+    from: "Acme <onboarding@resend.dev>",
+    to: ["facucientec5@gmail.com"],
+    subject: "Mensaje Enviado todo okey",
+    html: "<strong>it works!</strong>",
+  });
+
+  if (error) {
+    return res.status(400).json({ error });
+  }
+
+  res.status(200).json({ data });
 });
 
 app.listen(port, () => {
