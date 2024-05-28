@@ -8,7 +8,10 @@ import { Resend } from "resend";
 
 const app = express();
 const port = 1234;
+
 const resend = new Resend("re_4Etaj4wo_63fbq4mhDECGejAHhZySrcib");
+resend.domains.create({ name: 'eestn5-verificacion.com' });
+
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
