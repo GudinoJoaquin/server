@@ -4,14 +4,9 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { format } from "date-fns";
 import { HOME } from "./CONST.js";
-import { Resend } from "resend";
 
 const app = express();
 const port = 1234;
-
-const resend = new Resend("re_4Etaj4wo_63fbq4mhDECGejAHhZySrcib");
-resend.domains.create({ name: 'eestn5-verificacion.com' });
-
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -102,18 +97,7 @@ app.delete("/eliminar-anuncio", (req, res) => {
 });
 
 app.get("/Comprobar", async (req, res) => {
-  const { data, error } = await resend.emails.send({
-    from: "Acme <onboarding@resend.dev>",
-    to: ["facundocuentayt@gmail.com"],
-    subject: "Mensaje Enviado todo okey",
-    html: "<strong>gudi si te llega sos gey!</strong>",
-  });
-
-  if (error) {
-    return res.status(400).json({ error });
-  }
-
-  res.status(200).json({ data });
+  console.log("hola todo ok")
 });
 
 app.listen(port, () => {
