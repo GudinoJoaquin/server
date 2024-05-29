@@ -1,1 +1,1 @@
-export const HOME = 'http://localhost:5173'
+export const HOME = 'https://admin-eta-opal.vercel.app'
