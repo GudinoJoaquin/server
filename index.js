@@ -105,7 +105,7 @@ app.get("/Comprobar", async (req, res) => {
 const contadores = [];
 
 app.get("/login", (req, res) => {
-  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const ip = req.ip
   const nombre = req.query.user || "anónimo";
 
   // Verifica si ya existe un contador para esta dirección IP, si no, inicializa el contador en 1
