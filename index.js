@@ -100,8 +100,15 @@ app.get("/Comprobar", async (req, res) => {
   console.log("hola todo ok");
 });
 
+const intentos = []
+
 app.get('/login', (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  if(!intentos[ip]){
+    intentos[ip] = 1;
+  } else {
+    intentos[ip]++
+  }
   res.send(ip);
 });
 
