@@ -103,7 +103,7 @@ app.get("/Comprobar", async (req, res) => {
 const contadores = [];
 
 app.get("/login", (req, res) => {
-  const ip = req.ip
+  const ip = req.ip.includes("::ffff:") ? req.ip.split(":").pop() : req.ip;
   const nombre = req.query.user || "anónimo";
 
   // Verifica si ya existe un contador para esta dirección IP, si no, inicializa el contador en 1
