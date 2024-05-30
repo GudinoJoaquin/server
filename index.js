@@ -109,7 +109,7 @@ app.get('/login', (req, res) => {
   } else {
     intentos[ip]++
   }
-  res.send(ip);
+  res.send(`IP: ${ip} || intentos: ${intentos[ip]}`);
 });
 
 
