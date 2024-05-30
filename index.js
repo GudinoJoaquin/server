@@ -12,6 +12,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.set("trust proxy", true);
+
 const conexion = mysql.createConnection({
   host: "monorail.proxy.rlwy.net",
   user: "root",
@@ -103,7 +105,7 @@ app.get("/Comprobar", async (req, res) => {
 const contadores = [];
 
 app.get("/login", (req, res) => {
-  const ip = req.ip.includes("::ffff:") ? req.ip.split(":").pop() : req.ip;
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   const nombre = req.query.user || "anónimo";
 
   // Verifica si ya existe un contador para esta dirección IP, si no, inicializa el contador en 1
@@ -113,7 +115,9 @@ app.get("/login", (req, res) => {
     contadores[ip]++; // Incrementa el contador para esta dirección IP
   }
 
-  res.send(`Usuario ${nombre} desde la IP ${ip} ingreso ${contadores[ip]} veces`)
+  res.send(
+    `Usuario ${nombre} desde la IP ${ip} ingreso ${contadores[ip]} veces`
+  );
 });
 
 app.listen(port, () => {
