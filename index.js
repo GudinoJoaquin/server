@@ -70,8 +70,7 @@ app.get("/anuncios", (req, res) => {
     sql += " WHERE id = ?";
   }
   sql += " ORDER BY id DESC";
-
-  sql = "SELECT * FROM anuncios";
++
   conexion.query(sql, [id], (err, result) => {
     if (err) {
       console.error(`Error al obtener los datos en la base de datos ${err}`);
