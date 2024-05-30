@@ -98,8 +98,8 @@ app.delete("/eliminar-anuncio", (req, res) => {
   });
 });
 
-app.get("/comprobar", (req, res) => {
-  res.send("Server funcionando");
+app.get("/Comprobar", async (req, res) => {
+  console.log("hola todo ok")
 });
 
 app.listen(port, () => {

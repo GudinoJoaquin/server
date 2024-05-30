@@ -224,7 +224,6 @@
     "natural-compare": "^1.4.0",
     "negotiator": "^0.6.3",
     "node-releases": "^2.0.14",
-    "nodemailer": "^6.9.13",
     "normalize-path": "^3.0.0",
     "normalize-range": "^0.1.2",
     "object-assign": "^4.1.1",
