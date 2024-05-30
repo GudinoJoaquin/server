@@ -102,7 +102,7 @@ app.get("/Comprobar", async (req, res) => {
 
 app.get('/login', (req, res) => {
   const ip = req.ip
-  req.send(ip)
+  res.send(ip)
 })
 
 app.listen(port, () => {
