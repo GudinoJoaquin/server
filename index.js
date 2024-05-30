@@ -100,7 +100,7 @@ app.get("/Comprobar", async (req, res) => {
   console.log("hola todo ok");
 });
 
-app.post('/login', (req, res) => {
+app.get('/login', (req, res) => {
   const ip = req.ip
   req.send(ip)
 })
