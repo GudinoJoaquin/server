@@ -70,8 +70,7 @@ app.get("/anuncios", (req, res) => {
     sql += " WHERE id = ?";
   }
   sql += " ORDER BY id DESC";
-+
-  conexion.query(sql, [id], (err, result) => {
+  +conexion.query(sql, [id], (err, result) => {
     if (err) {
       console.error(`Error al obtener los datos en la base de datos ${err}`);
       res.status(500).send("Error interno del servidor");
@@ -98,7 +97,7 @@ app.delete("/eliminar-anuncio", (req, res) => {
 });
 
 app.get("/Comprobar", async (req, res) => {
-  console.log("hola todo ok")
+  console.log("hola todo ok");
 });
 
 app.listen(port, () => {
