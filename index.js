@@ -100,10 +100,10 @@ app.get("/Comprobar", async (req, res) => {
   console.log("hola todo ok");
 });
 
-app.get('/login', (req, res) => {
-  const ip = req.ip
-  res.send(ip)
-})
+app.get("/login", (req, res) => {
+  const ip = req.ip.includes("::ffff:") ? req.ip.split(":").pop() : req.ip;
+  res.send(ip);
+});
 
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
