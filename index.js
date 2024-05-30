@@ -100,18 +100,21 @@ app.get("/Comprobar", async (req, res) => {
   console.log("hola todo ok");
 });
 
-const intentos = []
+const contadores = [];
 
-app.get('/login', (req, res) => {
-  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-  if(!intentos[ip]){
-    intentos[ip] = 1;
+app.get("/login", (req, res) => {
+  const ip = req.ip.includes("::ffff:") ? req.ip.split(":").pop() : req.ip;
+  const nombre = req.query.user || "anónimo";
+
+  // Verifica si ya existe un contador para esta dirección IP, si no, inicializa el contador en 1
+  if (!contadores[ip]) {
+    contadores[ip] = 1;
   } else {
-    intentos[ip]++
+    contadores[ip]++; // Incrementa el contador para esta dirección IP
   }
-  res.send(`IP: ${ip} || intentos: ${intentos[ip]}`);
-});
 
+  res.send(`Usuario ${nombre} desde la IP ${ip} ingreso ${contadores[ip]} veces`)
+});
 
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
