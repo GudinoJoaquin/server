@@ -3,9 +3,8 @@ import mysql from "mysql2";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { format } from "date-fns";
-import { HOME, emailHtml, verificationCode } from "./CONST.js";
+import { HOME, generateVerificationCode, generateEmailHtml } from "./CONST.js";
 import { Resend } from "resend";
-import { createSymlinkSync } from "fs-extra";
 
 const resend = new Resend("re_bHFMyZsv_AWrq3vTBnyXiB8xRzfno11iy");
 const app = express();
@@ -28,14 +27,11 @@ const conexion = mysql.createConnection({
 app.post("/admin/enviar-anuncio", (req, res) => {
   const titulo = req.body.titulo || "Titulo";
   const mensaje = req.body.mensaje || "Mensaje";
-  let img =
-    req.body.imagen ||
-    "https://lh3.googleusercontent.com/p/AF1QipOMvxtzYmxLLIoY56X1Hh8kkVR3kUASy6Rz38pT=s680-w680-h510";
+  let img = req.body.imagen || "https://lh3.googleusercontent.com/p/AF1QipOMvxtzYmxLLIoY56X1Hh8kkVR3kUASy6Rz38pT=s680-w680-h510";
   const adjunto = req.body.adjunto || "https://eest5mdp.edu.ar";
   const fecha = format(new Date(), "dd-MM-yyyy");
 
-  const sql =
-    "INSERT INTO anuncios (fecha, titulo, mensaje, imagen, contenido_adjunto) VALUES (?, ?, ?, ?, ?)";
+  const sql = "INSERT INTO anuncios (fecha, titulo, mensaje, imagen, contenido_adjunto) VALUES (?, ?, ?, ?, ?)";
 
   conexion.query(sql, [fecha, titulo, mensaje, img, adjunto], (err, result) => {
     if (err) {
@@ -54,8 +50,7 @@ app.post("/admin/editar-anuncio", (req, res) => {
   const adjunto = req.body.adjunto;
   const id = req.body.anuncioID;
 
-  const sql =
-    "UPDATE anuncios SET titulo=?,mensaje=?,imagen=?,contenido_adjunto=? WHERE id = ?";
+  const sql = "UPDATE anuncios SET titulo=?,mensaje=?,imagen=?,contenido_adjunto=? WHERE id = ?";
 
   conexion.query(sql, [titulo, mensaje, img, adjunto, id], (err, result) => {
     if (err) {
@@ -75,7 +70,7 @@ app.get("/anuncios", (req, res) => {
     sql += " WHERE id = ?";
   }
   sql += " ORDER BY id DESC";
-  +conexion.query(sql, [id], (err, result) => {
+  conexion.query(sql, [id], (err, result) => {
     if (err) {
       console.error(`Error al obtener los datos en la base de datos ${err}`);
       res.status(500).send("Error interno del servidor");
@@ -107,9 +102,27 @@ app.get("/Comprobar", async (req, res) => {
 
 const contadores = [];
 
+app.get("/login", (req, res) => {
+  const ip = req.ip;
+  const nombre = req.query.user || "anónimo";
+
+  // Verifica si ya existe un contador para esta dirección IP, si no, inicializa el contador en 1
+  if (!contadores[ip]) {
+    contadores[ip] = 1;
+  } else {
+    contadores[ip]++; // Incrementa el contador para esta dirección IP
+  }
+
+  res.send(
+    `Usuario ${nombre} desde la IP ${ip} ingreso ${contadores[ip]} veces`
+  );
+});
 
 app.get("/resend", async (req, res) => {
   try {
+    const verificationCode = generateVerificationCode();
+    const emailHtml = generateEmailHtml(verificationCode);
+
     const { data, error } = await resend.emails.send({
       from: "EESTN5 <onboarding@resend.dev>",
       to: ["cientosoficial@gmail.com"],
@@ -121,15 +134,12 @@ app.get("/resend", async (req, res) => {
       return res.status(400).json({ error });
     }
 
-    res.send(verificationCode)
+    res.send(verificationCode);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-
-
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
 });
-
