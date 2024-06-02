@@ -3,8 +3,11 @@ import mysql from "mysql2";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { format } from "date-fns";
-import { HOME } from "./CONST.js";
+import { HOME, emailHtml, verificationCode } from "./CONST.js";
+import { Resend } from "resend";
+import { createSymlinkSync } from "fs-extra";
 
+const resend = new Resend("re_bHFMyZsv_AWrq3vTBnyXiB8xRzfno11iy");
 const app = express();
 const port = 1234;
 
@@ -104,22 +107,29 @@ app.get("/Comprobar", async (req, res) => {
 
 const contadores = [];
 
-app.get("/login", (req, res) => {
-  const ip = req.ip
-  const nombre = req.query.user || "anónimo";
 
-  // Verifica si ya existe un contador para esta dirección IP, si no, inicializa el contador en 1
-  if (!contadores[ip]) {
-    contadores[ip] = 1;
-  } else {
-    contadores[ip]++; // Incrementa el contador para esta dirección IP
+app.get("/resend", async (req, res) => {
+  try {
+    const { data, error } = await resend.emails.send({
+      from: "EESTN5 <onboarding@resend.dev>",
+      to: ["cientosoficial@gmail.com"],
+      subject: "Código de Verificación",
+      html: emailHtml,
+    });
+
+    if (error) {
+      return res.status(400).json({ error });
+    }
+
+    res.send(verificationCode)
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-
-  res.send(
-    `Usuario ${nombre} desde la IP ${ip} ingreso ${contadores[ip]} veces`
-  );
 });
+
+
 
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
 });
+
