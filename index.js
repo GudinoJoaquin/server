@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { HOME, generateVerificationCode, generateEmailHtml } from "./CONST.js";
 import { Resend } from "resend";
 
-const resend = new Resend("re_bHFMyZsv_AWrq3vTBnyXiB8xRzfno11iy");
+const resend = new Resend("re_Rjax6ev1_JuV7mKN3QErMoBMuGY5gXRsU");
 const app = express();
 const port = 1234;
 
