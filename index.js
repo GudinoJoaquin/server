@@ -125,7 +125,7 @@ app.get("/resend", async (req, res) => {
 
     const { data, error } = await resend.emails.send({
       from: "EESTN5 <onboarding@resend.dev>",
-      to: ["cientosoficial@gmail.com"],
+      to: ["facucientec5@gmail.com"],
       subject: "Código de Verificación",
       html: emailHtml,
     });
