@@ -6,7 +6,7 @@ import { checkApiKey } from "../js/verificacion.js";
 const router = express.Router();
 
 router.get("/anuncios", obtenerAnuncios);
-router.post("/admin/enviar-anuncio", checkApiKey("v"), enviarAnuncio);
+router.post("/admin/enviar-anuncio", enviarAnuncio);
 router.post("/admin/editar-anuncio", checkApiKey("v"), editarAnuncio);
 router.delete("/eliminar-anuncio", checkApiKey("v"), eliminarAnuncio);
 router.get("/resend", checkApiKey("nv"), enviarCorreo);
