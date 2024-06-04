@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.get("/anuncios", obtenerAnuncios);
 router.post("/admin/enviar-anuncio", enviarAnuncio);
-router.post("/admin/editar-anuncio", checkApiKey("v"), editarAnuncio);
-router.delete("/eliminar-anuncio", checkApiKey("v"), eliminarAnuncio);
-router.get("/resend", checkApiKey("nv"), enviarCorreo);
+router.post("/admin/editar-anuncio", editarAnuncio);
+router.delete("/eliminar-anuncio", eliminarAnuncio);
+router.get("/resend", checkApiKey("CBuW$66aWU!MbZ41h^JH^nLAw%^^sh%JfJmp82#ud*YX91Fx5N6%t6%!udFF"), enviarCorreo);
 
 export default router;
