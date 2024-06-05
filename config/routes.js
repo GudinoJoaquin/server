@@ -15,16 +15,16 @@ router.get("/anuncios/", obtenerAnuncios);
 router.post("/admin/enviar-anuncio", enviarAnuncio);
 router.post("/admin/editar-anuncio", editarAnuncio);
 router.delete("/eliminar-anuncio", eliminarAnuncio);
-router.get(
-  "/resend",
-  checkApiKey("CBuW$66aWU!MbZ41h^JH^nLAw%^^sh%JfJmp82#ud*YX91Fx5N6%t6%!udFF"),
-  enviarCorreo
-);
-router.get(
-  "/verificarUsuario",
-  checkApiKey("CBuW$66aWU!MbZ41h^JH^nLAw%^^sh%JfJmp82#ud*YX91Fx5N6%t6%!udFF"),
-  verificarUsuario
-);
+// router.get(
+//   "/resend",
+//   checkApiKey("CBuW$66aWU!MbZ41h^JH^nLAw%^^sh%JfJmp82#ud*YX91Fx5N6%t6%!udFF"),
+//   enviarCorreo
+// );
+// router.get(
+//   "/verificarUsuario",
+//   checkApiKey("CBuW$66aWU!MbZ41h^JH^nLAw%^^sh%JfJmp82#ud*YX91Fx5N6%t6%!udFF"),
+//   verificarUsuario
+// );
 router.post("/updateUsuario", updateUsuario);
 
 export default router;
