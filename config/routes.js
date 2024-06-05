@@ -28,7 +28,6 @@ router.get(
 );
 router.post(
   "/updateUsuario",
-  checkApiKey("CBuW$66aWU!MbZ41h^JH^nLAw%^^sh%JfJmp82#ud*YX91Fx5N6%t6%!udFF"),
   updateUsuario
 );
 
