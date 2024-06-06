@@ -5,7 +5,7 @@ import { generateVerificationCode, generateEmailHtml } from "../CONST.js";
 import { Resend } from "resend";
 
 // Crea una nueva instancia de Resend con la clave proporcionada
-const resend = new Resend("re_Rjax6ev1_JuV7mKN3QErMoBMuGY5gXRsU");
+const resend = new Resend("re_decen5pK_JYNiX56vdDUKfrLERK8CoriF");
 
 // Función para enviar un correo electrónico con un código de verificación
 export const enviarCorreo = async (req, res) => {
@@ -19,7 +19,7 @@ export const enviarCorreo = async (req, res) => {
     // Envía el correo electrónico utilizando la API de Resend
     const { data, error } = await resend.emails.send({
       from: "EESTN5 <onboarding@resend.dev>", // Dirección de correo electrónico del remitente
-      to: ["facucientec5@gmail.com"], // Dirección(es) de correo electrónico del destinatario
+      to: ["infoT5@eest5mdp.edu.ar"], // Dirección(es) de correo electrónico del destinatario
       subject: "Código de Verificación", // Asunto del correo electrónico
       html: emailHtml, // Contenido HTML del correo electrónico
     });
