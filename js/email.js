@@ -19,7 +19,7 @@ export const enviarCorreo = async (req, res) => {
     // Envía el correo electrónico utilizando la API de Resend
     const { data, error } = await resend.emails.send({
       from: "EESTN5 <onboarding@resend.dev>", // Dirección de correo electrónico del remitente
-      to: ["gudinojoaquin06@gmail.com"], // Dirección(es) de correo electrónico del destinatario
+      to: ["facucientec5@gmail.com"], // Dirección(es) de correo electrónico del destinatario
       subject: "Código de Verificación", // Asunto del correo electrónico
       html: emailHtml, // Contenido HTML del correo electrónico
     });
