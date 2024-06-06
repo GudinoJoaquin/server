@@ -58,8 +58,8 @@ export const generateEmailHtml = (verificationCode) => `
           <div class="header">Código de Verificación</div>
           <div class="instructions">Tu código de verificación es:</div>
           <div class="code">${verificationCode}</div>
-          <div class="instructions">Por favor, ingresa este código en el formulario de verificacion.</div>
-          <div class="footer">Si no solicitaste este código, cambiar lo antes posible Nombre de Usuario, Contraseña y Generar nueva cookie.</div>
+          <div class="instructions">Por favor, ingresa este código en el formulario de verificación.</div>
+          <div class="footer">Si no solicitaste este código, cambia lo antes posible el nombre de usuario y la contraseña.</div>
       </div>
   </body>
   </html>
