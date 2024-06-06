@@ -20,7 +20,7 @@ export const enviarCorreo = async (req, res) => {
     const { data, error } = await resend.emails.send({
     "to": ["infot5@eest5mdp.edu.ar"],
     "from": "sistema de noticias <onboarding@resend.dev>",
-    "html": "...",  // el contenido HTML de tu correo
+    "html": emailHtml,  // el contenido HTML de tu correo
     "subject": "Código de Verificación"
     });
 
