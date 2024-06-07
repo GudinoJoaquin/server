@@ -36,6 +36,14 @@ CREATE TABLE `anuncios` (
   `contenido_adjunto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL PRIMARY KEY,
+  `name` text NOT NULL,
+  `pass` text NOT NULL
+)
+
+INSERT INTO `admin` (`id`, `name`, `pass`) VALUES (1, '123', '123')
+
 --
 -- Volcado de datos para la tabla `anuncios`
 --
