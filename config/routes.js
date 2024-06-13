@@ -8,11 +8,9 @@ import {
 import { enviarCorreo } from "../js/email.js";
 import { checkApiKey } from "../js/verificacion.js";
 import { updateUsuario, verificarUsuario } from "../js/usuario.js";
-import conexion from "./db.js";
 
 const router = express.Router();
 
-router.get('/', conexion)
 router.get("/anuncios/", obtenerAnuncios);
 router.post("/admin/enviar-anuncio", enviarAnuncio);
 router.post("/admin/editar-anuncio", editarAnuncio);
