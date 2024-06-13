@@ -10,6 +10,13 @@ import { HOME } from "../CONST.js";
 // Función para enviar un nuevo anuncio
 export const enviarAnuncio = (req, res) => {
   // Obtiene los datos del cuerpo de la solicitud HTTP o establece valores predeterminados
+  const Api_Key = req.body.api
+
+  if(!Api_Key){
+    res.send('Usuario no autorizado')
+    return
+  }
+
   const titulo = req.body.titulo || "Titulo";
   const mensaje = req.body.mensaje || "Mensaje";
   let img = req.body.imagen || "https://lh3.googleusercontent.com/p/AF1QipOMvxtzYmxLLIoY56X1Hh8kkVR3kUASy6Rz38pT=s680-w680-h510";
