@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 app.set("trust proxy", true);
 
 app.use(routes);
-app.use(conexion)
 
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
