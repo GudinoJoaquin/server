@@ -20,8 +20,12 @@ export const verificarUsuario = (req, res) => {
 
 export const updateUsuario = (req, res) => {
   //Toma el valor del formulario de la configuracion
-  const newUser = req.body.user;
-  const newPass = req.body.pass;
+  const { newUser, newPass, api } = req.body;
+
+  if (!api) {
+    res.status(401).send("Usuario no autorizado");
+    return;
+  }
 
   const sql = "UPDATE admin SET name = ?, pass = ? WHERE id = 1";
 
