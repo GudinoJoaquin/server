@@ -46,12 +46,15 @@ export const enviarAnuncio = (req, res) => {
 // Función para editar un anuncio existente
 export const editarAnuncio = (req, res) => {
   // Obtiene los datos del cuerpo de la solicitud HTTP
-  const { titulo, mensaje, img, adjunto, id, api } = req.body;
+  const api = req.body.api
 
-  if (!api) {
-    res.status(401).send("Usuario no autorizado");
-    return;
+  if(!api){
+    req.status(401).send('Usuario no autorizado')
+    return
   }
+
+  const { titulo, mensaje, img, adjunto, id } = req.body;
+
 
   // Consulta SQL para actualizar un anuncio en la base de datos
   const sql =
