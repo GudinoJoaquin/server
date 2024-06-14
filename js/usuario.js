@@ -22,16 +22,18 @@ export const updateUsuario = (req, res) => {
   //Toma el valor del formulario de la configuracion
   const newUser = req.body.user;
   const newPass = req.body.pass;
-  const api = req.body.api
+  const newCookie = req.body.cookie;
+  const api = req.body.api;
 
-  if(!api){
-    res.status(401).send('Usuario no autorizado')
-    return
+  if (!api) {
+    res.status(401).send("Usuario no autorizado");
+    return;
   }
 
-  const sql = "UPDATE admin SET name = ?, pass = ? WHERE id = 1";
+  const sql =
+    "UPDATE admin SET name = ?, pass = ?, cookie_value = ? WHERE id = 1";
 
-  conexion.query(sql, [newUser, newPass], (err, result) => {
+  conexion.query(sql, [newUser, newPass, newCookie], (err, result) => {
     if (err) {
       console.error(
         `Error al actualizar el usuario en la base de datos: ${err}`
