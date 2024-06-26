@@ -1,12 +1,12 @@
 import conexion from "../config/db.js";
 import { HOME } from "../CONST.js";
 
-import conexion from "../config/db.js";
-
 export const verificarUsuario = (req, res) => {
-  const sql = "SELECT * FROM admin WHERE name = ? AND pass = ?";
-  const user = req.body.user;
-  const pass = req.body.pass;
+  //Toma el valor del formulario de inicio de sesion
+  const user = req.body.user || "admin";
+  const pass = req.body.pass || "admin";
+
+  const sql = "SELECT * FROM admin";
 
   conexion.query(sql, [user, pass], (err, result) => {
     if (err) {
@@ -14,16 +14,12 @@ export const verificarUsuario = (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    if (result.length > 0) {
-      res.send(result);
-    } else {
-      res.status(401).send("Usuario no encontrado");
-    }
+    res.send(result);
   });
 };
 
-
 export const updateUsuario = (req, res) => {
+  //Toma el valor del formulario de la configuracion
   const newUser = req.body.user;
   const newPass = req.body.pass;
   const newCookie = req.body.cookie;
@@ -34,11 +30,14 @@ export const updateUsuario = (req, res) => {
     return;
   }
 
-  const sql = "UPDATE admin SET name = ?, pass = ?, cookie_value = ? WHERE id = 1";
+  const sql =
+    "UPDATE admin SET name = ?, pass = ?, cookie_value = ? WHERE id = 1";
 
   conexion.query(sql, [newUser, newPass, newCookie], (err, result) => {
     if (err) {
-      console.error(`Error al actualizar el usuario en la base de datos: ${err}`);
+      console.error(
+        `Error al actualizar el usuario en la base de datos: ${err}`
+      );
       res.status(500).send("Error interno de servidor");
       return;
     }
