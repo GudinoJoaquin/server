@@ -1,12 +1,12 @@
 import conexion from "../config/db.js";
 import { HOME } from "../CONST.js";
 
-export const verificarUsuario = (req, res) => {
-  //Toma el valor del formulario de inicio de sesion
-  const user = req.body.user || "admin";
-  const pass = req.body.pass || "admin";
+import conexion from "../config/db.js";
 
-  const sql = "SELECT * FROM admin";
+export const verificarUsuario = (req, res) => {
+  const sql = "SELECT * FROM admin WHERE name = ? AND pass = ?";
+  const user = req.body.user;
+  const pass = req.body.pass;
 
   conexion.query(sql, [user, pass], (err, result) => {
     if (err) {
@@ -14,9 +14,14 @@ export const verificarUsuario = (req, res) => {
       res.status(500).send("Error interno del servidor");
       return;
     }
-    res.send(result);
+    if (result.length > 0) {
+      res.send(result);
+    } else {
+      res.status(401).send("Usuario no encontrado");
+    }
   });
 };
+
 
 export const updateUsuario = (req, res) => {
   //Toma el valor del formulario de la configuracion
