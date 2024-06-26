@@ -7,7 +7,6 @@ const conexion = mysql.createConnection({
   user: "DiegoAdministradorT5", // DiegoAdministradorT5
   password: "EESTN5anunciosADMIN", // EESTN5anunciosADMIN
   database: "anunciosT5mdp", // anunciosT5mdp
-  port: 8880,
 });
 
 // Intenta conectarse a la base de datos
