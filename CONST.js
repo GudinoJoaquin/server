@@ -1,5 +1,5 @@
-export const HOME = "https://admin-eta-opal.vercel.app";
-// export const HOME = 'http://localhost:5173/configurar'
+// export const HOME = "https://admin-eta-opal.vercel.app/";
+export const HOME = "http://localhost:5173/";
 
 export const generateVerificationCode = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();

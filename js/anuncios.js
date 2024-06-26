@@ -10,14 +10,25 @@ import { HOME } from "../CONST.js";
 // Función para enviar un nuevo anuncio
 export const enviarAnuncio = (req, res) => {
   // Obtiene los datos del cuerpo de la solicitud HTTP o establece valores predeterminados
+  const api = req.body.api;
+
+  if (!api) {
+    res.status(401).send("Usuario no autorizado");
+
+    return;
+  }
+
   const titulo = req.body.titulo || "Titulo";
   const mensaje = req.body.mensaje || "Mensaje";
-  let img = req.body.imagen || "https://lh3.googleusercontent.com/p/AF1QipOMvxtzYmxLLIoY56X1Hh8kkVR3kUASy6Rz38pT=s680-w680-h510";
+  let img =
+    req.body.imagen ||
+    "https://lh3.googleusercontent.com/p/AF1QipOMvxtzYmxLLIoY56X1Hh8kkVR3kUASy6Rz38pT=s680-w680-h510";
   const adjunto = req.body.adjunto || "https://eest5mdp.edu.ar";
   const fecha = format(new Date(), "dd-MM-yyyy"); // Formatea la fecha actual
 
   // Consulta SQL para insertar un nuevo anuncio en la base de datos
-  const sql = "INSERT INTO anuncios (fecha, titulo, mensaje, imagen, contenido_adjunto) VALUES (?, ?, ?, ?, ?)";
+  const sql =
+    "INSERT INTO anuncios (fecha, titulo, mensaje, imagen, contenido_adjunto) VALUES (?, ?, ?, ?, ?)";
 
   // Ejecuta la consulta SQL en la base de datos
   conexion.query(sql, [fecha, titulo, mensaje, img, adjunto], (err, result) => {
@@ -35,14 +46,19 @@ export const enviarAnuncio = (req, res) => {
 // Función para editar un anuncio existente
 export const editarAnuncio = (req, res) => {
   // Obtiene los datos del cuerpo de la solicitud HTTP
-  const titulo = req.body.titulo;
-  const mensaje = req.body.mensaje;
-  const img = req.body.imagen;
-  const adjunto = req.body.adjunto;
-  const id = req.body.anuncioID;
+  const api = req.body.api
+
+  if(!api){
+    req.status(401).send('Usuario no autorizado')
+    return
+  }
+
+  const { titulo, mensaje, img, adjunto, id } = req.body;
+
 
   // Consulta SQL para actualizar un anuncio en la base de datos
-  const sql = "UPDATE anuncios SET titulo=?,mensaje=?,imagen=?,contenido_adjunto=? WHERE id = ?";
+  const sql =
+    "UPDATE anuncios SET titulo=?,mensaje=?,imagen=?,contenido_adjunto=? WHERE id = ?";
 
   // Ejecuta la consulta SQL en la base de datos
   conexion.query(sql, [titulo, mensaje, img, adjunto, id], (err, result) => {
@@ -84,6 +100,12 @@ export const obtenerAnuncios = (req, res) => {
 
 // Función para eliminar un anuncio de la base de datos
 export const eliminarAnuncio = (req, res) => {
+  const { api } = req.body;
+  
+  if (!api) {
+    res.status(401).send("Usuario no autorizado");
+    return;
+  }
   const id = req.query.id; // Obtiene el ID del anuncio de la consulta de la URL
 
   // Consulta SQL para eliminar un anuncio de la base de datos
