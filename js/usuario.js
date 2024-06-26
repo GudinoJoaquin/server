@@ -24,7 +24,6 @@ export const verificarUsuario = (req, res) => {
 
 
 export const updateUsuario = (req, res) => {
-  //Toma el valor del formulario de la configuracion
   const newUser = req.body.user;
   const newPass = req.body.pass;
   const newCookie = req.body.cookie;
@@ -35,14 +34,11 @@ export const updateUsuario = (req, res) => {
     return;
   }
 
-  const sql =
-    "UPDATE admin SET name = ?, pass = ?, cookie_value = ? WHERE id = 1";
+  const sql = "UPDATE admin SET name = ?, pass = ?, cookie_value = ? WHERE id = 1";
 
   conexion.query(sql, [newUser, newPass, newCookie], (err, result) => {
     if (err) {
-      console.error(
-        `Error al actualizar el usuario en la base de datos: ${err}`
-      );
+      console.error(`Error al actualizar el usuario en la base de datos: ${err}`);
       res.status(500).send("Error interno de servidor");
       return;
     }
