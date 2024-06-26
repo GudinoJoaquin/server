@@ -3,11 +3,11 @@ import mysql from "mysql2";
 
 // Crea una conexión a la base de datos utilizando los parámetros proporcionados
 const conexion = mysql.createConnection({
-  host: "www.eest5mdp.edu.ar", //http://www.eest5mdp.edu.ar:8880/phpMyAdmin/index.php?route=/&route=%2F&db=anunciosT5mdp&table=anuncios
-  user: "DiegoAdministradorT5", // DiegoAdministradorT5
-  password: "EESTN5anunciosADMIN", // EESTN5anunciosADMIN
-  database: "anunciosT5mdp", // anunciosT5mdp
-  port: 8880 // Puerto del servidor MySQL, si es necesario especificarlo
+  host: "www.eest5mdp.edu.ar", // Dirección del servidor de la base de datos
+  user: "DiegoAdministradorT5", // Usuario de la base de datos
+  password: "EESTN5anunciosADMIN", // Contraseña de la base de datos
+  database: "anunciosT5mdp", // Nombre de la base de datos
+  port: 3306 // Puerto del servidor MySQL
 });
 
 // Intenta conectarse a la base de datos
