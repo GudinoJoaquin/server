@@ -11,7 +11,7 @@ import { updateUsuario, verificarUsuario } from "../js/usuario.js";
 
 const router = express.Router();
 
-router.get("/anuncios", obtenerAnuncios);
+router.get("/anuncios/", obtenerAnuncios);
 router.post("/admin/enviar-anuncio", enviarAnuncio);
 router.post("/admin/editar-anuncio", editarAnuncio);
 router.delete("/eliminar-anuncio", eliminarAnuncio);
