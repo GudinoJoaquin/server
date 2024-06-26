@@ -3,11 +3,11 @@ import mysql from "mysql2";
 
 // Crea una conexión a la base de datos utilizando los parámetros proporcionados
 const conexion = mysql.createConnection({
-  host: "monorail.proxy.rlwy.net", // Dirección del servidor de la base de datos
-  user: "root", // Nombre de usuario para acceder a la base de datos
-  password: "lNvUCqwziZIuxnnSXjGYDDedmJRnxtVS", // Contraseña para acceder a la base de datos
-  database: "railway", // Nombre de la base de datos a la que se conectará
-  port: 52220, // Puerto en el que el servidor de la base de datos está escuchando
+  host: "http://www.eest5mdp.edu.ar:8880/phpMyAdmin/index.php?route=/&route=%2F&db=anunciosT5mdp&table=anuncios", //http://www.eest5mdp.edu.ar:8880/phpMyAdmin/index.php?route=/&route=%2F&db=anunciosT5mdp&table=anuncios
+  user: "DiegoAdministradorT5", // DiegoAdministradorT5
+  password: "EESTN5anunciosADMIN", // EESTN5anunciosADMIN
+  database: "anunciosT5mdp", // anunciosT5mdp
+  port: 3306, // 3306
 });
 
 // Intenta conectarse a la base de datos
