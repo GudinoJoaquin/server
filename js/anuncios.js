@@ -46,22 +46,22 @@ export const enviarAnuncio = (req, res) => {
 // Función para editar un anuncio existente
 export const editarAnuncio = (req, res) => {
   // Obtiene los datos del cuerpo de la solicitud HTTP
-  const api = req.body.api
+  const api = req.body.api;
 
-  if(!api){
-    req.status(401).send('Usuario no autorizado')
-    return
+  if (!api) {
+    // Debes usar res.status en lugar de req.status para enviar la respuesta de error
+    res.status(401).send('Usuario no autorizado');
+    return;
   }
 
-  const { titulo, mensaje, img, adjunto, id } = req.body;
-
+  const { titulo, mensaje, imagen, adjunto, id } = req.body;
 
   // Consulta SQL para actualizar un anuncio en la base de datos
   const sql =
-    "UPDATE anuncios SET titulo=?,mensaje=?,imagen=?,contenido_adjunto=? WHERE id = ?";
+    "UPDATE anuncios SET titulo=?, mensaje=?, imagen=?, contenido_adjunto=? WHERE id = ?";
 
   // Ejecuta la consulta SQL en la base de datos
-  conexion.query(sql, [titulo, mensaje, img, adjunto, id], (err, result) => {
+  conexion.query(sql, [titulo, mensaje, imagen, adjunto, id], (err, result) => {
     // Maneja los errores si ocurren durante la ejecución de la consulta
     if (err) {
       console.error(`Error al modificar el anuncio ${err.name}`);
@@ -72,6 +72,7 @@ export const editarAnuncio = (req, res) => {
     res.redirect(HOME);
   });
 };
+
 
 // Función para obtener todos los anuncios o un anuncio específico
 export const obtenerAnuncios = (req, res) => {
