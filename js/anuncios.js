@@ -65,7 +65,7 @@ export const editarAnuncio = (req, res) => {
     // Maneja los errores si ocurren durante la ejecución de la consulta
     if (err) {
       console.error(`Error al modificar el anuncio ${err.name}`);
-      res.status(500).send("Error interno del servidor");
+      res.status(500).send("Error interno a del servidor");
       return;
     }
     // Redirige a la página de inicio después de que se haya editado el anuncio con éxito
