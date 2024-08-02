@@ -1,1 +1,1 @@
-POST https://anuncios.vercel.app/admin/enviar-anuncio
+GET http://localhost/anuncios
