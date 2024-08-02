@@ -15,7 +15,7 @@ const conexion = mysql.createConnection({
   user: "root", // Usuario de la base de datos
   password: "", // Contraseña de la base de datos
   database: "anunciost5mdp", // Nombre de la base de datos
-  //port: 3306 // Puerto del servidor MySQL
+  port: 1234 // Puerto del servidor MySQL
 });
 
 // Intenta conectarse a la base de datos
