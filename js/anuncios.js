@@ -1,11 +1,31 @@
 // Importa la función format del módulo date-fns para formatear fechas
 import { format } from "date-fns";
+import mysql from 'mysql2'
 
 // Importa la conexión a la base de datos desde el archivo de configuración
-import conexion from "../config/db.js";
+//import conexion from "../config/db.js";
 
 // Importa la constante HOME desde el archivo CONST.js
 import { HOME } from "../CONST.js";
+
+
+const conexion = mysql.createConnection({
+  host: "mysql.railway.internal", // Dirección del servidor de la base de datos
+  user: "root", // Usuario de la base de datos
+  password: "jBQJNtzcatsolqkjzhAuaJPSuhiKzpvC", // Contraseña de la base de datos
+  database: "railway", // Nombre de la base de datos
+  port: 3306 // Puerto del servidor MySQL
+});
+
+conexion.connect((err) => {
+  // Si hay un error en la conexión, muestra un mensaje de error en la consola
+  if (err) {
+    console.error(`Error connecting to the database: ${err.stack}`);
+    return;
+  }
+  // Si la conexión es exitosa, muestra un mensaje indicando el ID de hilo de la conexión en la consola
+  console.log(`Connected to the database as ID ${conexion.threadId}`);
+});
 
 // Función para enviar un nuevo anuncio
 export const enviarAnuncio = (req, res) => {
