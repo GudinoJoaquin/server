@@ -11,11 +11,11 @@ import mysql from "mysql2";
 }); */
 
 const conexion = mysql.createConnection({
-  host: "localhost", // Dirección del servidor de la base de datos
+  host: "mysql.railway.internal", // Dirección del servidor de la base de datos
   user: "root", // Usuario de la base de datos
-  password: "", // Contraseña de la base de datos
-  database: "anunciost5mdp", // Nombre de la base de datos
-  //port: 3306 // Puerto del servidor MySQL
+  password: "jBQJNtzcatsolqkjzhAuaJPSuhiKzpvC", // Contraseña de la base de datos
+  database: "railway", // Nombre de la base de datos
+  port: 3306 // Puerto del servidor MySQL
 });
 
 // Intenta conectarse a la base de datos
