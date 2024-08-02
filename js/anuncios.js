@@ -1,11 +1,31 @@
 // Importa la función format del módulo date-fns para formatear fechas
 import { format } from "date-fns";
+import mysql from 'mysql2'
 
 // Importa la conexión a la base de datos desde el archivo de configuración
-import conexion from "../config/db.js";
+//import conexion from "../config/db.js";
 
 // Importa la constante HOME desde el archivo CONST.js
 import { HOME } from "../CONST.js";
+
+
+const conexion = mysql.createConnection({
+  host: "mysql.railway.internal", // Dirección del servidor de la base de datos
+  user: "root", // Usuario de la base de datos
+  password: "jBQJNtzcatsolqkjzhAuaJPSuhiKzpvC", // Contraseña de la base de datos
+  database: "railway", // Nombre de la base de datos
+  port: 3306 // Puerto del servidor MySQL
+});
+
+conexion.connect((err) => {
+  // Si hay un error en la conexión, muestra un mensaje de error en la consola
+  if (err) {
+    console.error(`Error connecting to the database: ${err.stack}`);
+    return;
+  }
+  // Si la conexión es exitosa, muestra un mensaje indicando el ID de hilo de la conexión en la consola
+  console.log(`Connected to the database as ID ${conexion.threadId}`);
+});
 
 // Función para enviar un nuevo anuncio
 export const enviarAnuncio = (req, res) => {
@@ -46,32 +66,33 @@ export const enviarAnuncio = (req, res) => {
 // Función para editar un anuncio existente
 export const editarAnuncio = (req, res) => {
   // Obtiene los datos del cuerpo de la solicitud HTTP
-  const api = req.body.api
+  const api = req.body.api;
 
-  if(!api){
-    req.status(401).send('Usuario no autorizado')
-    return
+  if (!api) {
+    // Debes usar res.status en lugar de req.status para enviar la respuesta de error
+    res.status(401).send('Usuario no autorizado');
+    return;
   }
 
-  const { titulo, mensaje, img, adjunto, id } = req.body;
-
+  const { titulo, mensaje, imagen, adjunto, id } = req.body;
 
   // Consulta SQL para actualizar un anuncio en la base de datos
   const sql =
-    "UPDATE anuncios SET titulo=?,mensaje=?,imagen=?,contenido_adjunto=? WHERE id = ?";
+    "UPDATE anuncios SET titulo=?, mensaje=?, imagen=?, contenido_adjunto=? WHERE id = ?";
 
   // Ejecuta la consulta SQL en la base de datos
-  conexion.query(sql, [titulo, mensaje, img, adjunto, id], (err, result) => {
+  conexion.query(sql, [titulo, mensaje, imagen, adjunto, id], (err, result) => {
     // Maneja los errores si ocurren durante la ejecución de la consulta
     if (err) {
       console.error(`Error al modificar el anuncio ${err.name}`);
-      res.status(500).send("Error interno del servidor");
+      res.status(500).send("Error interno a del servidor");
       return;
     }
     // Redirige a la página de inicio después de que se haya editado el anuncio con éxito
     res.redirect(HOME);
   });
 };
+
 
 // Función para obtener todos los anuncios o un anuncio específico
 export const obtenerAnuncios = (req, res) => {
