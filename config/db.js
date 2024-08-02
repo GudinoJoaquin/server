@@ -15,7 +15,7 @@ const conexion = mysql.createConnection({
   user: "root", // Usuario de la base de datos
   password: "", // Contraseña de la base de datos
   database: "anunciost5mdp", // Nombre de la base de datos
-  port: 1234 // Puerto del servidor MySQL
+  //port: 3306 // Puerto del servidor MySQL
 });
 
 // Intenta conectarse a la base de datos
@@ -29,21 +29,6 @@ conexion.connect((err) => {
   console.log(`Connected to the database as ID ${conexion.threadId}`);
 });
 
-conexion.on('error', (err) => {
-  console.error(`Database error: ${err.stack}`)
-  if(err.code === 'PROTOCOL_CONNECTION_LOST'){
-    console.log('Intentando reconectar a la base de datos')
-    conexion.connect((err) => {
-      if(err){
-        console.error(`Error reconectando a la base de datos ${err.stack}`)
-        return
-      }
-      console.log(`Reconectado a la base de datos con el ID ${conexion.threadId}`)
-    })
-  } else {
-    throw err
-  }
-})
 
 // Exporta la conexión para que pueda ser utilizada en otros archivos
 export default conexion;
