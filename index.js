@@ -3,7 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import routes from "./config/routes.js";
 const app = express();
-const port = 1234;
+const port = 1235;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
